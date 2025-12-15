@@ -1,0 +1,400 @@
+/* Product Page Styles */
+.product-page {
+    padding: 2rem;
+    background-color: #faf7f2;
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Image Gallery */
+.product-gallery {
+    display: flex;
+    gap: 1rem;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100px;
+}
+
+.main-image {
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.thumbnail.active {
+    border-color: #8b5e3c;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+    padding: 1rem;
+}
+
+.product-header h1 {
+    color: #5d4037;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.sales-info {
+    margin: 1rem 0;
+}
+
+.sales-text, .viewers-text {
+    color: #8b5e3c;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* Color Options */
+.color-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-option[data-color="white"] {
+    background-color: white;
+}
+
+.color-option.active {
+    border-color: #8b5e3c;
+    transform: scale(1.1);
+}
+
+/* Size Options */
+.size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.size-option {
+    padding: 0.5rem 1rem;
+    border: 2px solid #8b5e3c;
+    border-radius: 25px;
+    background: transparent;
+    color: #8b5e3c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size-option:hover {
+    background: #8b5e3c;
+    color: white;
+}
+
+.size-option.active {
+    background: #8b5e3c;
+    color: white;
+}
+
+/* Price Section */
+.price-section {
+    margin: 1.5rem 0;
+}
+
+.current-price {
+    font-size: 2rem;
+    color: #d4a056;
+    font-weight: bold;
+}
+
+/* Order Preview */
+.order-preview {
+    background: #f8f5f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px dashed #8b5e3c;
+}
+
+.order-preview h3 {
+    color: #5d4037;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.preview-content {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.preview-content p {
+    margin: 0;
+    color: #8b5e3c;
+}
+
+.preview-content strong {
+    color: #5d4037;
+}
+
+#preview-image {
+    border-radius: 4px;
+    border: 2px solid #8b5e3c;
+}
+
+/* Order Form Enhancements */
+.order-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.order-form input {
+    background: #faf7f2;
+}
+
+.order-form input:focus {
+    background: white;
+}
+
+/* Order Confirmation Enhancement */
+.order-confirmation {
+    background: #4CAF50;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1.5rem 0;
+    animation: slideIn 0.5s ease-out;
+}
+
+.order-confirmation .whatsapp-button {
+    background: white;
+    color: #4CAF50;
+    margin-top: 1rem;
+}
+
+.order-confirmation .whatsapp-button:hover {
+    background: #f5f5f5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* WhatsApp Option Enhancement */
+.whatsapp-option {
+    background: #f8f5f0;
+    border: 2px solid #25D366;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.whatsapp-booking {
+    text-align: center;
+}
+
+.whatsapp-booking h3 {
+    color: #075E54;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.whatsapp-booking p {
+    color: #4a4a4a;
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.whatsapp-booking-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-booking-button:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-booking-button i {
+    font-size: 1.4rem;
+}
+
+/* Floating WhatsApp Button Enhancement */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background: #128C7E;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .order-preview {
+        padding: 1rem;
+    }
+    
+    .preview-content {
+        gap: 0.5rem;
+    }
+    
+    .order-form {
+        padding: 1rem;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-gallery {
+        flex-direction: column-reverse;
+    }
+
+    .thumbnail-container {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .thumbnail {
+        flex-shrink: 0;
+    }
+
+    .main-image {
+        margin-left: 0;
+    }
+}
+
+/* Fix for logo size consistency on desktop */
+@media (min-width: 769px) {
+    /* Override any inline logo attributes to ensure consistent sizing */
+    .logo img {
+        height: 40px !important;
+        width: auto !important;
+        max-height: 40px !important;
+        max-width: none !important;
+        margin-right: 10px !important;
+        /* These properties help override inline attributes */
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
+    }
+    
+    /* Add !important to ensure styles take precedence over any inline styles */
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        flex: 0 0 auto !important;
+        height: auto !important;
+        max-width: none !important;
+        padding: 0 !important;
+    }
+    
+    /* Ensure heading is consistent */
+    .logo h1.site-name,
+    .logo .site-name {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #553b0a !important;
+        display: inline-block !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+    
+    /* Make header consistent with homepage */
+    .header-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 8px 15px !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        height: auto !important;
+    }
+    
+    /* Ensure consistent display across all product pages */
+    header {
+        position: relative !important;
+        height: auto !important;
+        min-height: 60px !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1) !important;
+    }
+} 
