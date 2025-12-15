@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://aspire-furnitures-uk.onrender.com/socket.io/socket.io.js"></script>
 </head>
 <body>
     <div class="admin-container">
@@ -179,7 +179,7 @@
 
     <script>
         // Initialize Socket.IO
-        const socket = io();
+        const socket = io('https://aspire-furnitures-uk.onrender.com');
         
         // Check if user is logged in
         if (!localStorage.getItem('adminLoggedIn')) {
@@ -474,7 +474,7 @@
             }
 
             // Call server API to delete the order
-            fetch('/api/delete-order/' + orderId, {
+            fetch('https://aspire-furnitures-uk.onrender.com/api/delete-order/' + orderId, {
                 method: 'DELETE'
             })
             .then(response => response.json())
@@ -592,7 +592,7 @@
             }
 
             // Call server API to delete all orders
-            fetch('/api/delete-all-orders', {
+            fetch('https://aspire-furnitures-uk.onrender.com/api/delete-all-orders', {
                 method: 'DELETE'
             })
             .then(response => response.json())
