@@ -2,9 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 const path = require('path');
+const mongoose = require('mongoose');
+const Order = require('./models/Order');
 const app = express();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+});
 
 // Middleware
 app.use(bodyParser.json());
@@ -21,27 +28,114 @@ app.use((req, res, next) => {
     next();
 });
 
-// Store orders in a JSON file
-const ORDERS_FILE = 'orders.json';
+// MongoDB connection with better error handling
+let dbConnected = false;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/aspirefurniture';
 
-// Initialize orders file if it doesn't exist
-async function initOrdersFile() {
-    try {
-        await fs.access(ORDERS_FILE);
-    } catch {
-        await fs.writeFile(ORDERS_FILE, '[]');
+console.log('Attempting to connect to MongoDB...');
+
+// Configure MongoDB connection based on environment
+const mongooseOptions = {
+    serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+};
+
+// Add SSL options for production environments (MongoDB Atlas)
+if (process.env.NODE_ENV === 'production' && MONGODB_URI.includes('mongodb.net')) {
+    mongooseOptions.tls = true;
+    mongooseOptions.tlsInsecure = false; // Set to true only if having SSL certificate issues
+}
+
+mongoose.connect(MONGODB_URI, mongooseOptions)
+.then(() => {
+    console.log('Connected to MongoDB successfully');
+    dbConnected = true;
+})
+.catch(err => {
+    console.error('MongoDB connection error:', err);
+    console.log('Running in fallback mode without database persistence');
+    dbConnected = false;
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    if (dbConnected) {
+        res.status(200).send('OK - Database Connected');
+    } else {
+        res.status(200).send('OK - Running in Fallback Mode');
+    }
+});
+
+// In-memory storage as fallback when MongoDB is not available
+let fallbackOrders = [];
+
+// Helper function to get orders (from DB if connected, otherwise from memory)
+async function getOrders() {
+    if (dbConnected) {
+        try {
+            return await Order.find().sort({ createdAt: -1 });
+        } catch (err) {
+            console.error('Error fetching orders from DB:', err);
+            return fallbackOrders;
+        }
+    } else {
+        return fallbackOrders;
     }
 }
 
-// Read orders from file
-async function readOrders() {
-    const data = await fs.readFile(ORDERS_FILE, 'utf8');
-    return JSON.parse(data);
+// Helper function to save order (to DB if connected, otherwise to memory)
+async function saveOrder(orderData) {
+    if (dbConnected) {
+        try {
+            const order = new Order(orderData);
+            return await order.save();
+        } catch (err) {
+            console.error('Error saving order to DB:', err);
+            // Fallback to memory
+            fallbackOrders.push(orderData);
+            return orderData;
+        }
+    } else {
+        fallbackOrders.push(orderData);
+        return orderData;
+    }
 }
 
-// Write orders to file
-async function writeOrders(orders) {
-    await fs.writeFile(ORDERS_FILE, JSON.stringify(orders, null, 2));
+// Helper function to delete order (from DB if connected, otherwise from memory)
+async function deleteOrder(orderId) {
+    if (dbConnected) {
+        try {
+            return await Order.deleteOne({ id: orderId });
+        } catch (err) {
+            console.error('Error deleting order from DB:', err);
+            // Fallback to memory
+            const initialLength = fallbackOrders.length;
+            fallbackOrders = fallbackOrders.filter(order => order.id !== orderId);
+            return { deletedCount: initialLength - fallbackOrders.length };
+        }
+    } else {
+        const initialLength = fallbackOrders.length;
+        fallbackOrders = fallbackOrders.filter(order => order.id !== orderId);
+        return { deletedCount: initialLength - fallbackOrders.length };
+    }
+}
+
+// Helper function to delete all orders (from DB if connected, otherwise from memory)
+async function deleteAllOrders() {
+    if (dbConnected) {
+        try {
+            return await Order.deleteMany({});
+        } catch (err) {
+            console.error('Error deleting all orders from DB:', err);
+            // Fallback to memory
+            const count = fallbackOrders.length;
+            fallbackOrders = [];
+            return { deletedCount: count };
+        }
+    } else {
+        const count = fallbackOrders.length;
+        fallbackOrders = [];
+        return { deletedCount: count };
+    }
 }
 
 // Socket.IO connection handling
@@ -51,7 +145,7 @@ io.on('connection', (socket) => {
     // Send existing orders to newly connected admin clients
     socket.on('admin-connected', async () => {
         try {
-            const orders = await readOrders();
+            const orders = await getOrders();
             socket.emit('initial-orders', orders);
         } catch (error) {
             console.error('Error sending initial orders:', error);
@@ -66,8 +160,7 @@ io.on('connection', (socket) => {
 // Delete all orders endpoint
 app.delete('/api/delete-all-orders', async (req, res) => {
     try {
-        // Save empty array to orders file
-        await writeOrders([]);
+        const result = await deleteAllOrders();
         
         // Emit event to all connected admin clients
         io.emit('all-orders-deleted');
@@ -89,22 +182,16 @@ app.delete('/api/delete-all-orders', async (req, res) => {
 app.delete('/api/delete-order/:orderId', async (req, res) => {
     try {
         const orderId = req.params.orderId;
-        let orders = await readOrders();
         
-        // Filter out the order to be deleted
-        const initialLength = orders.length;
-        orders = orders.filter(order => order.id !== orderId);
+        const result = await deleteOrder(orderId);
         
         // Check if any order was actually deleted
-        if (orders.length === initialLength) {
+        if (result.deletedCount === 0) {
             return res.status(404).json({ 
                 success: false, 
                 message: "Order not found" 
             });
         }
-        
-        // Save updated orders
-        await writeOrders(orders);
         
         // Emit the deleted order ID to all connected admin clients
         io.emit('order-deleted', orderId);
@@ -125,18 +212,17 @@ app.delete('/api/delete-order/:orderId', async (req, res) => {
 // Submit order endpoint
 app.post('/api/submit-order', async (req, res) => {
     try {
-        const order = {
+        const orderData = {
             id: Date.now().toString(),
             timestamp: new Date().toISOString(),
             ...req.body
         };
 
-        const orders = await readOrders();
-        orders.push(order);
-        await writeOrders(orders);
+        // Save order to database or memory
+        const savedOrder = await saveOrder(orderData);
         
         // Emit the new order to all connected admin clients
-        io.emit('new-order', order);
+        io.emit('new-order', orderData);
 
         res.json({ 
             success: true, 
@@ -151,10 +237,24 @@ app.post('/api/submit-order', async (req, res) => {
     }
 });
 
+// Get all orders endpoint
+app.get('/api/orders', async (req, res) => {
+    try {
+        const orders = await getOrders();
+        res.json(orders);
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: "Error fetching orders. Please try again." 
+        });
+    }
+});
+
 // Admin route to view orders
 app.get('/admin/orders', async (req, res) => {
     try {
-        const orders = await readOrders();
+        const orders = await getOrders();
         res.send(
             '<!DOCTYPE html>' +
             '<html>' +
@@ -188,22 +288,23 @@ app.get('/admin/orders', async (req, res) => {
             '</head>' +
             '<body>' +
             '<h1>Orders</h1>' +
-            orders.reverse().map(order => 
+            orders.map(order => 
                 '<div class="order">' +
                 '<h3>Order ID: ' + order.id + '</h3>' +
                 '<div class="timestamp">Ordered on: ' + new Date(order.timestamp).toLocaleString() + '</div>' +
                 '<div class="order-details">' +
-                '<p><strong>Product:</strong> ' + order.productName + '</p>' +
+                '<p><strong>Product:</strong> ' + (order.productName || order.product || 'N/A') + '</p>' +
                 '<p><strong>Size:</strong> ' + (order.selectedSize || order.size || 'N/A') + '</p>' +
                 '<p><strong>Color:</strong> ' + (order.color || 'N/A') + '</p>' +
                 '<p><strong>Quantity:</strong> ' + (order.quantity || '1') + '</p>' +
-                '<p><strong>Price:</strong> ' + order.price + '</p>' +
-                '<p><strong>Customer:</strong> ' + (order.name || order.customer) + '</p>' +
-                '<p><strong>Address:</strong> ' + order.address + '</p>' +
-                '<p><strong>Postcode:</strong> ' + order.postcode + '</p>' +
-                '<p><strong>WhatsApp:</strong> ' + order.whatsapp + '</p>' +
-                '<p><strong>Selected Image:</strong> ' + order.selectedImage + '</p>' +
-                '<p><strong>Payment Method:</strong> ' + order.paymentMethod + '</p>' +
+                '<p><strong>Price:</strong> ' + (order.price || order.totalPrice || 'N/A') + '</p>' +
+                '<p><strong>Customer:</strong> ' + (order.name || order.customer || 'N/A') + '</p>' +
+                '<p><strong>Address:</strong> ' + (order.address || 'N/A') + '</p>' +
+                '<p><strong>Postcode:</strong> ' + (order.postcode || 'N/A') + '</p>' +
+                '<p><strong>WhatsApp:</strong> ' + (order.whatsapp || 'N/A') + '</p>' +
+                '<p><strong>Selected Image:</strong> ' + (order.selectedImage || 'N/A') + '</p>' +
+                '<p><strong>Payment Method:</strong> ' + (order.paymentMethod || 'N/A') + '</p>' +
+                '<p><strong>Status:</strong> ' + (order.status || 'pending') + '</p>' +
                 '</div>' +
                 '</div>'
             ).join('') +
@@ -217,8 +318,10 @@ app.get('/admin/orders', async (req, res) => {
 
 // Initialize and start server
 const PORT = process.env.PORT || 3002;
-initOrdersFile().then(() => {
-    http.listen(PORT, () => {
-        console.log('Server running on port ' + PORT);
-    });
+http.listen(PORT, () => {
+    console.log('Server running on port ' + PORT);
+    if (!dbConnected) {
+        console.log('⚠️  WARNING: MongoDB not connected. Running in fallback mode with in-memory storage.');
+        console.log('To enable persistent storage, please set MONGODB_URI environment variable.');
+    }
 });

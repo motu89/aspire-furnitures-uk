@@ -178,18 +178,33 @@
     </div>
 
     <script>
-        // Initialize Socket.IO
-        const socket = io('https://aspire-furnitures-uk.onrender.com');
+        // Initialize Socket.IO based on environment
+        let socket;
+        let apiUrl;
+        
+        // Check if we're running on localhost or production
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development
+            socket = io('http://localhost:3002');
+            apiUrl = 'http://localhost:3002';
+        } else {
+            // Production
+            socket = io(); // Uses the same origin as the page
+            apiUrl = ''; // Relative path
+        }
         
         // Check if user is logged in
         if (!localStorage.getItem('adminLoggedIn')) {
             window.location.href = 'index.html';
         }
         
-        // When admin connects, request initial orders
+        // Fetch orders from API on page load
+        fetchOrdersFromAPI();
+        
+        // When admin connects, request initial orders (fallback)
         socket.emit('admin-connected');
         
-        // Listen for initial orders
+        // Listen for initial orders (fallback method)
         socket.on('initial-orders', (orders) => {
             // Store orders in localStorage
             localStorage.setItem('orders', JSON.stringify(orders));
@@ -241,6 +256,23 @@
                 loadOrders();
             }
         });
+
+        // Fetch orders from API
+        function fetchOrdersFromAPI() {
+            fetch(apiUrl + '/api/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    // Store orders in localStorage
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    // Load orders in UI
+                    loadOrders();
+                })
+                .catch(error => {
+                    console.error('Error fetching orders from API:', error);
+                    // Fallback to localStorage if API fails
+                    loadOrders();
+                });
+        }
 
         // Show notification for new orders
         function showOrderNotification(order) {
@@ -474,7 +506,7 @@
             }
 
             // Call server API to delete the order
-            fetch('https://aspire-furnitures-uk.onrender.com/api/delete-order/' + orderId, {
+            fetch(apiUrl + '/api/delete-order/' + orderId, {
                 method: 'DELETE'
             })
             .then(response => response.json())
@@ -592,7 +624,7 @@
             }
 
             // Call server API to delete all orders
-            fetch('https://aspire-furnitures-uk.onrender.com/api/delete-all-orders', {
+            fetch(apiUrl + '/api/delete-all-orders', {
                 method: 'DELETE'
             })
             .then(response => response.json())
