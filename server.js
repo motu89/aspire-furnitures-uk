@@ -28,11 +28,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// MongoDB connection with better error handling
-let dbConnected = false;
+// MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/aspirefurniture';
-
-console.log('Attempting to connect to MongoDB...');
 
 // Configure MongoDB connection based on environment
 const mongooseOptions = {
@@ -45,98 +42,10 @@ if (process.env.NODE_ENV === 'production' && MONGODB_URI.includes('mongodb.net')
     mongooseOptions.tlsInsecure = false; // Set to true only if having SSL certificate issues
 }
 
-mongoose.connect(MONGODB_URI, mongooseOptions)
-.then(() => {
-    console.log('Connected to MongoDB successfully');
-    dbConnected = true;
-})
-.catch(err => {
-    console.error('MongoDB connection error:', err);
-    console.log('Running in fallback mode without database persistence');
-    dbConnected = false;
-});
-
 // Health check endpoint
 app.get('/health', (req, res) => {
-    if (dbConnected) {
-        res.status(200).send('OK - Database Connected');
-    } else {
-        res.status(200).send('OK - Running in Fallback Mode');
-    }
+    res.status(200).send('OK');
 });
-
-// In-memory storage as fallback when MongoDB is not available
-let fallbackOrders = [];
-
-// Helper function to get orders (from DB if connected, otherwise from memory)
-async function getOrders() {
-    if (dbConnected) {
-        try {
-            return await Order.find().sort({ createdAt: -1 });
-        } catch (err) {
-            console.error('Error fetching orders from DB:', err);
-            return fallbackOrders;
-        }
-    } else {
-        return fallbackOrders;
-    }
-}
-
-// Helper function to save order (to DB if connected, otherwise to memory)
-async function saveOrder(orderData) {
-    if (dbConnected) {
-        try {
-            const order = new Order(orderData);
-            return await order.save();
-        } catch (err) {
-            console.error('Error saving order to DB:', err);
-            // Fallback to memory
-            fallbackOrders.push(orderData);
-            return orderData;
-        }
-    } else {
-        fallbackOrders.push(orderData);
-        return orderData;
-    }
-}
-
-// Helper function to delete order (from DB if connected, otherwise from memory)
-async function deleteOrder(orderId) {
-    if (dbConnected) {
-        try {
-            return await Order.deleteOne({ id: orderId });
-        } catch (err) {
-            console.error('Error deleting order from DB:', err);
-            // Fallback to memory
-            const initialLength = fallbackOrders.length;
-            fallbackOrders = fallbackOrders.filter(order => order.id !== orderId);
-            return { deletedCount: initialLength - fallbackOrders.length };
-        }
-    } else {
-        const initialLength = fallbackOrders.length;
-        fallbackOrders = fallbackOrders.filter(order => order.id !== orderId);
-        return { deletedCount: initialLength - fallbackOrders.length };
-    }
-}
-
-// Helper function to delete all orders (from DB if connected, otherwise from memory)
-async function deleteAllOrders() {
-    if (dbConnected) {
-        try {
-            return await Order.deleteMany({});
-        } catch (err) {
-            console.error('Error deleting all orders from DB:', err);
-            // Fallback to memory
-            const count = fallbackOrders.length;
-            fallbackOrders = [];
-            return { deletedCount: count };
-        }
-    } else {
-        const count = fallbackOrders.length;
-        fallbackOrders = [];
-        return { deletedCount: count };
-    }
-}
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
@@ -145,7 +54,7 @@ io.on('connection', (socket) => {
     // Send existing orders to newly connected admin clients
     socket.on('admin-connected', async () => {
         try {
-            const orders = await getOrders();
+            const orders = await Order.find().sort({ createdAt: -1 });
             socket.emit('initial-orders', orders);
         } catch (error) {
             console.error('Error sending initial orders:', error);
@@ -160,7 +69,8 @@ io.on('connection', (socket) => {
 // Delete all orders endpoint
 app.delete('/api/delete-all-orders', async (req, res) => {
     try {
-        const result = await deleteAllOrders();
+        // Delete all orders from database
+        await Order.deleteMany({});
         
         // Emit event to all connected admin clients
         io.emit('all-orders-deleted');
@@ -183,7 +93,8 @@ app.delete('/api/delete-order/:orderId', async (req, res) => {
     try {
         const orderId = req.params.orderId;
         
-        const result = await deleteOrder(orderId);
+        // Delete order from database
+        const result = await Order.deleteOne({ id: orderId });
         
         // Check if any order was actually deleted
         if (result.deletedCount === 0) {
@@ -218,8 +129,9 @@ app.post('/api/submit-order', async (req, res) => {
             ...req.body
         };
 
-        // Save order to database or memory
-        const savedOrder = await saveOrder(orderData);
+        // Save order to database first
+        const order = new Order(orderData);
+        await order.save();
         
         // Emit the new order to all connected admin clients
         io.emit('new-order', orderData);
@@ -240,7 +152,7 @@ app.post('/api/submit-order', async (req, res) => {
 // Get all orders endpoint
 app.get('/api/orders', async (req, res) => {
     try {
-        const orders = await getOrders();
+        const orders = await Order.find().sort({ createdAt: -1 });
         res.json(orders);
     } catch (error) {
         console.error('Error fetching orders:', error);
@@ -254,7 +166,7 @@ app.get('/api/orders', async (req, res) => {
 // Admin route to view orders
 app.get('/admin/orders', async (req, res) => {
     try {
-        const orders = await getOrders();
+        const orders = await Order.find().sort({ createdAt: -1 });
         res.send(
             '<!DOCTYPE html>' +
             '<html>' +
@@ -317,11 +229,26 @@ app.get('/admin/orders', async (req, res) => {
 });
 
 // Initialize and start server
-const PORT = process.env.PORT || 3002;
-http.listen(PORT, () => {
-    console.log('Server running on port ' + PORT);
-    if (!dbConnected) {
-        console.log('⚠️  WARNING: MongoDB not connected. Running in fallback mode with in-memory storage.');
-        console.log('To enable persistent storage, please set MONGODB_URI environment variable.');
+async function startServer() {
+    const PORT = process.env.PORT || 3002;
+    
+    console.log('Attempting to connect to MongoDB...');
+    
+    try {
+        // Await MongoDB connection before starting the Express server
+        await mongoose.connect(MONGODB_URI, mongooseOptions);
+        console.log('Connected to MongoDB successfully');
+        
+        // Start the server only after successful DB connection
+        http.listen(PORT, () => {
+            console.log('Server running on port ' + PORT);
+        });
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+        console.error('Failed to start server due to database connection failure');
+        process.exit(1); // Exit process if MongoDB fails to connect
     }
-});
+}
+
+// Start the server
+startServer();
