@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acoustic Wooden Panels - Aspire Furniture UK</title>
+    <link rel="icon" href="/images/logo.svg" type="image/svg">
+    <link rel="apple-touch-icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Extended gallery styling for 10 images */
+        .thumbnail-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-top: 15px;
+        }
+        
+        .thumbnail {
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .thumbnail.active {
+            border-color: #8b5e3c;
+            transform: scale(1.05);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .payment-method {
+            background-color: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+            color: #5d4037;
+        }
+        
+        .payment-method i {
+            color: #8b5e3c;
+            margin-right: 5px;
+        }
+        
+        .save-order-id {
+            margin-top: 1rem;
+            color: #856404;
+            background-color: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .price-section {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #8b5e3c;
+        }
+        
+        .selected-image-text {
+            margin-top: 1rem;
+            color: #198754;
+            font-weight: bold;
+        }
+        
+        .product-details, .dimensions-details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .product-details ul, .dimensions-details ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .product-details li, .dimensions-details li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .product-details li.option {
+            margin-left: 15px;
+        }
+        
+        /* Video thumbnail styling with play button overlay */
+        .video-thumbnail {
+            position: relative;
+        }
+        
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .purchase-options {
+            margin: 1.5rem 0;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            background: #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .option-label:hover {
+            background: #e0e0e0;
+        }
+        
+        .option-label input {
+            margin-right: 5px;
+        }
+        
+        .quantity-section {
+            margin: 1.5rem 0;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .quantity-btn {
+            background: #8b5e3c;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        #quantity {
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .total-price {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #8b5e3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo.svg" alt="Aspire Furniture UK Logo" width="300" height="80">
+                <h1 class="site-name">Aspire Furniture UK</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="../index.html#wardrobes">WARDROBES</a></li>
+                    <li><a href="../index.html#sofas">SOFAS</a></li>
+                    <li><a href="../index.html#beds">BEDS</a></li>
+                    <li><a href="../index.html#wall-panels">WALL PANELS</a></li>
+                    <li><a href="../index.html#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Image Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="../images/wall-panels/wooden1.webp" alt="Acoustic Wooden Panels" id="main-product-image">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" onclick="changeImage(this, '../images/wall-panels/wooden1.webp')">
+                        <img src="../images/wall-panels/wooden1.webp" alt="Acoustic Wooden Panels - View 1">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden2.jpg')">
+                        <img src="../images/wall-panels/wooden2.jpg" alt="Acoustic Wooden Panels - View 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden3.jpg')">
+                        <img src="../images/wall-panels/wooden3.jpg" alt="Acoustic Wooden Panels - View 3">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden4.webp')">
+                        <img src="../images/wall-panels/wooden4.webp" alt="Acoustic Wooden Panels - View 4">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden5.jpg')">
+                        <img src="../images/wall-panels/wooden5.jpg" alt="Acoustic Wooden Panels - View 5">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden6.jpg')">
+                        <img src="../images/wall-panels/wooden6.jpg" alt="Acoustic Wooden Panels - View 6">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wall-panels/wooden7.jpg')">
+                        <img src="../images/wall-panels/wooden7.jpg" alt="Acoustic Wooden Panels - View 7">
+                    </div>
+                    <!-- Video Thumbnail with Play Button Overlay -->
+                    <div class="thumbnail video-thumbnail" onclick="changeVideo(this, '../images/wall-panels/WhatsApp Video 2025-12-10 at 4.48.42 PM.mp4')">
+                        <img src="../images/wall-panels/video-thumbnail.jpg" alt="Acoustic Wooden Panels - Video" onerror="this.src='../images/wall-panels/wooden1.webp';">
+                        <div class="play-button-overlay">▶</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <div class="product-header">
+                    <h1>Acoustic Wooden Panels</h1>
+                </div>
+                
+                <div class="sales-info">
+                    <p class="sales-text">🔥 6 sold in last 24 hours</p>
+                    <p class="viewers-text">👀 12 people are viewing this right now</p>
+                </div>
+
+                <div class="product-details">
+                    <h3>Product Information</h3>
+                    <ul>
+                        <li><strong>Product is available in two options:</strong></li>
+                        <li class="option">1. <strong>By Panel</strong> – £60 per panel</li>
+                        <li class="option">2. <strong>By Pack</strong> – £230 per pack</li>
+                        <li><strong>Note:</strong> Panel and Pack options available. Choose as per your room dimensions or need.</li>
+                    </ul>
+                </div>
+
+                <div class="dimensions-details">
+                    <h3>Dimensions</h3>
+                    <ul>
+                        <li>Each panel: <strong>60 cm width × 240 cm height</strong></li>
+                        <li>One pack = <strong>4 panels</strong></li>
+                        <li>1 Pack = <strong>240 cm width × 240 cm height</strong></li>
+                    </ul>
+                </div>
+
+                <div class="purchase-options">
+                    <h3>Select Purchase Option:</h3>
+                    <div class="options-container">
+                        <label class="option-label">
+                            <input type="radio" name="purchase-option" value="panel" checked> Buy by Panel (£60 each)
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="purchase-option" value="pack"> Buy by Pack (£230 per pack)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quantity-section">
+                    <label for="quantity" id="quantity-label">Quantity (Panels):</label>
+                    <div class="quantity-control">
+                        <button type="button" class="quantity-btn" id="decrease-quantity">-</button>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1">
+                        <button type="button" class="quantity-btn" id="increase-quantity">+</button>
+                    </div>
+                    <div class="total-price">
+                        <strong>Total Price: <span id="total-price">£60</span></strong>
+                    </div>
+                </div>
+
+                <div class="stock-info">
+                    <p class="urgency-text">⚠️ Hurry Up! Only 5 left in stock!</p>
+                </div>
+
+                <div class="payment-method">
+                    <p><i class="fas fa-money-bill-wave"></i> Payment Method: Cash on Delivery</p>
+                </div>
+                
+                <div id="selected-image-notification" class="selected-image-text" style="display: none;">
+                    ✅ Image selected for your order
+                </div>
+
+                <!-- Order Form -->
+                <form id="order-form" class="order-form" onsubmit="return handleSubmit(event)">
+                    <div class="order-preview">
+                        <h3>Order Summary</h3>
+                        <div class="preview-content">
+                            <p><strong>Product:</strong> <span id="preview-product">Acoustic Wooden Panels</span></p>
+                            <p><strong>Option:</strong> <span id="preview-option">By Panel (£60 each)</span></p>
+                            <p><strong>Quantity:</strong> <span id="preview-quantity">1</span> <span id="preview-unit">panel(s)</span></p>
+                            <p><strong>Total Price:</strong> <span id="preview-total-price">£60</span></p>
+                            <p><strong>Selected Image:</strong> <img id="preview-image" src="../images/wall-panels/wooden1.webp" alt="Selected product view" style="width: 100px; height: 100px; object-fit: cover;"></p>
+                            <p><strong>Selected Color:</strong> <span id="preview-color">Not specified</span></p>
+                        </div>
+                    </div>
+                    
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <input type="text" name="postcode" placeholder="Postcode" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+                    <input type="text" name="color" id="color" placeholder="Enter your preferred colour" required>
+                    <input type="hidden" name="productName" value="Acoustic Wooden Panels">
+                    <input type="hidden" name="selectedImage" id="selected-image" value="../images/wall-panels/wooden1.webp">
+                    <input type="hidden" name="purchaseOption" id="form-purchase-option" value="panel">
+                    <input type="hidden" name="pricePerUnit" id="form-price-per-unit" value="£60">
+                    <input type="hidden" name="quantity" id="form-quantity" value="1">
+                    <input type="hidden" name="totalPrice" id="form-total-price" value="£60">
+                    <input type="hidden" name="paymentMethod" value="Cash on Delivery">
+                    
+                    <button type="submit" class="order-button">Place Order</button>
+                </form>
+                
+                <div class="order-confirmation" style="display: none;">
+                    <p>✅ Your order is booked! For order tracking or updates, WhatsApp us.</p>
+                    <a href="https://wa.me/447494821146" class="whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+
+                <div class="whatsapp-option">
+                    <div class="whatsapp-booking">
+                        <h3>Book via WhatsApp</h3>
+                        <p>📱 Want to book directly via WhatsApp? Our acoustic panel specialists are ready to assist you.</p>
+                        <p>✨ Get instant responses and personalized assistance</p>
+                        <p>🔊 Discuss soundproofing requirements and options</p>
+                        <p>📦 Get real-time delivery updates</p>
+                        <a href="#" class="whatsapp-booking-button" id="whatsapp-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447494821146" class="whatsapp-float" target="_blank" title="Need help? Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Dynamic image selection and order preview
+        const previewImage = document.getElementById('preview-image');
+        const whatsappOrderBtn = document.getElementById('whatsapp-order');
+        const orderForm = document.getElementById('order-form');
+        const orderConfirmation = document.querySelector('.order-confirmation');
+        const selectedImageNotification = document.getElementById('selected-image-notification');
+        const quantityInput = document.getElementById('quantity');
+        const quantityLabel = document.getElementById('quantity-label');
+        const decreaseBtn = document.getElementById('decrease-quantity');
+        const increaseBtn = document.getElementById('increase-quantity');
+        const totalPriceDisplay = document.getElementById('total-price');
+        const previewTotalPrice = document.getElementById('preview-total-price');
+        const previewQuantity = document.getElementById('preview-quantity');
+        const previewOption = document.getElementById('preview-option');
+        const previewUnit = document.getElementById('preview-unit');
+        const formPurchaseOption = document.getElementById('form-purchase-option');
+        const formPricePerUnit = document.getElementById('form-price-per-unit');
+        const formQuantity = document.getElementById('form-quantity');
+        const formTotalPrice = document.getElementById('form-total-price');
+        const colorInput = document.getElementById('color');
+        const previewColor = document.getElementById('preview-color');
+        
+        const PRICE_PER_PANEL = 60;
+        const PRICE_PER_PACK = 230;
+        let currentPurchaseOption = 'panel';
+        let pricePerUnit = PRICE_PER_PANEL;
+
+        // Set initial selected image
+        document.getElementById('selected-image').value = '../images/wall-panels/wooden1.webp';
+        
+        // Handle purchase option selection
+        document.querySelectorAll('input[name="purchase-option"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                currentPurchaseOption = e.target.value;
+                
+                if (currentPurchaseOption === 'panel') {
+                    pricePerUnit = PRICE_PER_PANEL;
+                    quantityLabel.textContent = 'Quantity (Panels):';
+                    previewOption.textContent = 'By Panel (£60 each)';
+                    previewUnit.textContent = 'panel(s)';
+                    formPricePerUnit.value = `£${PRICE_PER_PANEL}`;
+                } else {
+                    pricePerUnit = PRICE_PER_PACK;
+                    quantityLabel.textContent = 'Quantity (Packs):';
+                    previewOption.textContent = 'By Pack (£230 per pack)';
+                    previewUnit.textContent = 'pack(s)';
+                    formPricePerUnit.value = `£${PRICE_PER_PACK}`;
+                }
+                
+                formPurchaseOption.value = currentPurchaseOption;
+                updateQuantity();
+            });
+        });
+        
+        // Update color preview when input changes
+        colorInput.addEventListener('input', function() {
+            previewColor.textContent = this.value || 'Not specified';
+            updateWhatsAppLink();
+        });
+        
+        // Update preview when image is selected
+        function changeImage(thumbnail, imagePath) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            // Restore image display if video is currently shown
+            const mainContainer = document.querySelector('.main-image');
+            if (mainContainer.querySelector('video')) {
+                mainContainer.innerHTML = '<img src="' + imagePath + '" alt="Acoustic Wooden Panels" id="main-product-image">';
+            } else {
+                document.getElementById('main-product-image').src = imagePath;
+            }
+            
+            previewImage.src = imagePath;
+            document.getElementById('selected-image').value = imagePath;
+            
+            // Show selection notification
+            selectedImageNotification.style.display = 'block';
+            
+            // Update WhatsApp link
+            updateWhatsAppLink();
+        }
+        
+        // Function to handle video selection
+        function changeVideo(thumbnail, videoPath) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            // Display video in main area
+            const mainContainer = document.querySelector('.main-image');
+            mainContainer.innerHTML = '<video src="' + videoPath + '" controls autoplay muted style="width: 100%; height: auto;" id="main-product-video"></video>';
+            previewImage.src = '../images/wall-panels/wooden1.webp'; // Fallback image for preview
+            
+            document.getElementById('selected-image').value = videoPath;
+            
+            // Show selection notification
+            selectedImageNotification.style.display = 'block';
+            
+            // Update WhatsApp link
+            updateWhatsAppLink();
+        }
+        
+        // Handle quantity changes
+        function updateQuantity() {
+            const quantity = parseInt(quantityInput.value);
+            const totalPrice = quantity * pricePerUnit;
+            
+            // Update displays
+            totalPriceDisplay.textContent = `£${totalPrice}`;
+            previewTotalPrice.textContent = `£${totalPrice}`;
+            previewQuantity.textContent = quantity;
+            
+            // Update hidden form fields
+            formTotalPrice.value = `£${totalPrice}`;
+            formQuantity.value = quantity;
+            
+            // Update WhatsApp link
+            updateWhatsAppLink();
+        }
+        
+        // Decrease quantity
+        decreaseBtn.addEventListener('click', () => {
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+                updateQuantity();
+            }
+        });
+        
+        // Increase quantity
+        increaseBtn.addEventListener('click', () => {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+            updateQuantity();
+        });
+        
+        // When quantity input changes directly
+        quantityInput.addEventListener('change', () => {
+            if (parseInt(quantityInput.value) < 1) {
+                quantityInput.value = 1;
+            }
+            updateQuantity();
+        });
+        
+        // Update WhatsApp link with current selection
+        function updateWhatsAppLink() {
+            const quantity = parseInt(quantityInput.value);
+            const totalPrice = quantity * pricePerUnit;
+            const optionText = currentPurchaseOption === 'panel' ? 'Panel' : 'Pack';
+            const color = colorInput.value || 'Not specified';
+            
+            const message = encodeURIComponent(
+                `Hello! I'm interested in ordering Acoustic Wooden Panels:\n\n` +
+                `Option: ${optionText}\n` +
+                `Quantity: ${quantity} ${currentPurchaseOption === 'panel' ? 'panel(s)' : 'pack(s)'}\n` +
+                `Preferred Color: ${color}\n` +
+                `💰 Total Price: £${totalPrice}\n\n` +
+                `I'd like to discuss the order details and delivery options.`
+            );
+            
+            whatsappOrderBtn.href = `https://wa.me/447494821146?text=${message}`;
+        }
+        
+        // Initialize WhatsApp link
+        updateWhatsAppLink();
+        
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Get form values
+            const formData = new FormData(orderForm);
+            const quantity = parseInt(quantityInput.value);
+            const totalPrice = quantity * pricePerUnit;
+            const optionText = currentPurchaseOption === 'panel' ? 'Panel' : 'Pack';
+            const unitText = currentPurchaseOption === 'panel' ? 'panel(s)' : 'pack(s)';
+            const color = colorInput.value || 'Not specified';
+            
+            const orderData = {
+                productName: 'Acoustic Wooden Panels',
+                color: color,
+                purchaseOption: optionText,
+                pricePerUnit: currentPurchaseOption === 'panel' ? `£${PRICE_PER_PANEL}` : `£${PRICE_PER_PACK}`,
+                quantity: quantity,
+                unit: unitText,
+                totalPrice: `£${totalPrice}`,
+                customer: formData.get('name').trim(),
+                address: formData.get('address').trim(),
+                postcode: formData.get('postcode').trim(),
+                whatsapp: formData.get('whatsapp').trim(),
+                selectedImage: previewImage.src,
+                paymentMethod: 'Cash on Delivery'
+            };
+
+            // Validate form data
+            if (!orderData.customer || !orderData.address || !orderData.postcode || !orderData.whatsapp || !orderData.color) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+
+            // Submit order to server
+            fetch('https://aspire-furnitures-uk.onrender.com/api/submit-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Create WhatsApp message with order details
+                    const message = encodeURIComponent(
+                        `Hello! I've just placed an order for Acoustic Wooden Panels:\n\n` +
+                        `👤 Name: ${orderData.customer}\n` +
+                        `📍 Address: ${orderData.address}\n` +
+                        `📮 Postcode: ${orderData.postcode}\n` +
+                        `📱 WhatsApp: ${orderData.whatsapp}\n` +
+                        `🎨 Color: ${orderData.color}\n` +
+                        `🔘 Option: ${orderData.purchaseOption}\n` +
+                        `📦 Quantity: ${orderData.quantity} ${orderData.unit}\n` +
+                        `💰 Total Price: ${orderData.totalPrice}\n\n` +
+                        `Please confirm my order and provide delivery details.`
+                    );
+
+                    // Update WhatsApp button in confirmation
+                    const whatsappButton = orderConfirmation.querySelector('.whatsapp-button');
+                    whatsappButton.href = `https://wa.me/447494821146?text=${message}`;
+
+                    // Show confirmation
+                    orderConfirmation.innerHTML = `
+                        <p>${data.message}</p>
+                        <p>📱 For order tracking or updates, please contact us on WhatsApp:</p>
+                        <a href="https://wa.me/447494821146?text=${message}" class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                        </a>
+                        <p class="save-order-id">Please save your Order ID for future reference.</p>
+                    `;
+
+                    // Show confirmation
+                    orderForm.style.display = 'none';
+                    orderConfirmation.style.display = 'block';
+                } else {
+                    alert(data.message || 'There was an error saving your order. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error saving order:', error);
+                alert('There was an error saving your order. Please try again.');
+            });
+
+            return false;
+        }
+    </script>
+
+</body>
+</html> 

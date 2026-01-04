@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florida Bed's With Mattress - Aspire Furniture UK</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+    <meta name="msapplication-TileColor" content="#8b5e3c">
+    <meta name="theme-color" content="#8b5e3c">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo.svg" alt="Aspire Furniture UK Logo" width="300" height="80">
+                <h1 class="site-name">Aspire Furniture UK</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="../index.html#wardrobes">WARDROBES</a></li>
+                    <li><a href="../index.html#sofas">SOFAS</a></li>
+                    <li><a href="../index.html#beds">BEDS</a></li>
+                    <li><a href="../index.html#wall-panels">WALL PANELS</a></li>
+                    <li><a href="../index.html#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Image Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="../images/beds/fbed1.jpg" alt="Florida Bed's With Mattress" id="main-product-image">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" onclick="changeImage(this, '../images/beds/fbed1.jpg')">
+                        <img src="../images/beds/fbed1.jpg" alt="Florida Bed - Main View">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/beds/fbed2.jpg')">
+                        <img src="../images/beds/fbed2.jpg" alt="Florida Bed - View 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/beds/fbed3.jpg')">
+                        <img src="../images/beds/fbed3.jpg" alt="Florida Bed - View 3">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/beds/fbed4.jpg')">
+                        <img src="../images/beds/fbed4.jpg" alt="Florida Bed - View 4">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/beds/fbed5.jpg')">
+                        <img src="../images/beds/fbed5.jpg" alt="Florida Bed - View 5">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/beds/fbed6.jpg')">
+                        <img src="../images/beds/fbed6.jpg" alt="Florida Bed - View 6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <div class="product-header">
+                    <h1>Florida Bed's With Mattress</h1>
+                </div>
+                
+                <div class="sales-info">
+                    <p class="sales-text">🔥 8 sold in last 24 hours</p>
+                    <p class="viewers-text">👀 12 people are viewing this right now</p>
+                </div>
+
+                <div class="size-options">
+                    <h3>Size Options</h3>
+                    <div class="size-buttons">
+                        <button class="size-option" data-size="Single with mattress" data-price="180">Single</button>
+                        <button class="size-option" data-size="Double with mattress" data-price="220">Double</button>
+                        <button class="size-option" data-size="King size bed with mattress" data-price="240">King</button>
+                        <button class="size-option" data-size="Super king size bed with mattress" data-price="350">Super King</button>
+                    </div>
+                </div>
+
+                <div class="price-section">
+                    <span class="current-price">Select a size to see price</span>
+                </div>
+
+                <div class="mattress-info">
+                    <h3>Mattress Included</h3>
+                    <p>✅ High-quality orthopedic mattress included with every bed</p>
+                    <p>✅ Memory foam top layer for added comfort</p>
+                    <p>✅ Hypoallergenic and dust mite resistant</p>
+                </div>
+
+                <div class="delivery-info">
+                    <h3>Delivery & Assembly Information</h3>
+                    <p>⛔ 3FT Bed Base will come in one part</p>
+                    <p>⛔ 4FT, 4FT6, 5FT, and 6FT Bed bases will come in 2 halves which can be easily assembled</p>
+                    <p>⛔ Matching Headboard 20" will be provided along with this bed set</p>
+                    <p>⛔ Free and Fast Delivery</p>
+                    <p>⛔ Cash on Delivery</p>
+                    <p>⛔ Message us for more information</p>
+                </div>
+
+                <div class="stock-info">
+                    <p class="urgency-text">⚠️ Hurry Up! Only 6 left in stock!</p>
+                </div>
+
+                <div class="payment-method">
+                    <p><i class="fas fa-money-bill-wave"></i> Payment Method: Cash on Delivery</p>
+                </div>
+
+                <!-- Order Form -->
+                <form id="order-form" class="order-form" onsubmit="return handleSubmit(event)">
+                    <div class="order-preview" style="display: none;">
+                        <h3>Order Summary</h3>
+                        <div class="preview-content">
+                            <p><strong>Product:</strong> <span id="preview-product">Florida Bed's With Mattress</span></p>
+                            <p><strong>Selected Size:</strong> <span id="preview-size">Not selected</span></p>
+                            <p><strong>Price:</strong> <span id="preview-price">Not selected</span></p>
+                            <p><strong>Selected Image:</strong> <img id="preview-image" src="../images/beds/fbed1.jpg" alt="Selected product view" style="width: 100px; height: 100px; object-fit: cover;"></p>
+                        </div>
+                    </div>
+
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <input type="text" name="postcode" placeholder="Postcode" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+                    <input type="hidden" name="productName" value="Florida Bed's With Mattress">
+                    <input type="hidden" name="selectedSize" id="selected-size">
+                    <input type="hidden" name="price" id="selected-price">
+                    <input type="hidden" name="selectedImage" id="selected-image" value="../images/beds/fbed1.jpg">
+                    <input type="hidden" name="paymentMethod" value="Cash on Delivery">
+                    
+                    <button type="submit" class="order-button">Place Order</button>
+                </form>
+
+                <div class="order-confirmation" style="display: none;">
+                    <p>✅ Your order is booked! For order tracking or updates, WhatsApp us.</p>
+                    <a href="https://wa.me/447494821146" class="whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+
+                <div class="whatsapp-option">
+                    <div class="whatsapp-booking">
+                        <h3>Book via WhatsApp</h3>
+                        <p>📱 Prefer to discuss your order on WhatsApp? Our furniture specialists are ready to assist you.</p>
+                        <p>✨ Get instant responses and personalized assistance</p>
+                        <p>🛏️ Discuss bed and mattress options</p>
+                        <p>📦 Get real-time delivery updates</p>
+                        <a href="#" class="whatsapp-booking-button" id="whatsapp-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447494821146" class="whatsapp-float" target="_blank" title="Let us know if you need any help">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let selectedSize = null;
+        
+        // Dynamic price update and order preview
+        const sizeButtons = document.querySelectorAll('.size-option');
+        const currentPrice = document.querySelector('.current-price');
+        const orderPreview = document.querySelector('.order-preview');
+        const previewSize = document.getElementById('preview-size');
+        const previewPrice = document.getElementById('preview-price');
+        const previewImage = document.getElementById('preview-image');
+        const whatsappOrderBtn = document.getElementById('whatsapp-order');
+        const orderForm = document.getElementById('order-form');
+        const orderConfirmation = document.querySelector('.order-confirmation');
+        const selectedSizeInput = document.getElementById('selected-size');
+        const selectedPriceInput = document.getElementById('selected-price');
+        const selectedImageInput = document.getElementById('selected-image');
+
+        // Set initial selected image
+        previewImage.src = '../images/beds/fbed1.jpg';
+        selectedImageInput.value = '../images/beds/fbed1.jpg';
+
+        // Update preview when size is selected
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const price = button.dataset.price;
+                const size = button.dataset.size;
+                selectedSize = size;
+                
+                // Update price display
+                currentPrice.textContent = `£${price}`;
+                
+                // Update preview
+                previewSize.textContent = size;
+                previewPrice.textContent = `£${price}`;
+                orderPreview.style.display = 'block';
+                
+                // Update hidden inputs
+                selectedSizeInput.value = size;
+                selectedPriceInput.value = `£${price}`;
+                
+                // Update WhatsApp link
+                updateWhatsAppLink();
+            });
+        });
+
+        // Update preview when image is selected
+        function changeImage(thumbnail, imagePath) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            document.getElementById('main-product-image').src = imagePath;
+            previewImage.src = imagePath;
+            selectedImageInput.value = imagePath;
+            
+            updateWhatsAppLink();
+        }
+
+        // Update WhatsApp link with current selection
+        function updateWhatsAppLink() {
+            const size = selectedSize || 'not selected';
+            const price = currentPrice.textContent || 'not selected';
+            
+            const message = encodeURIComponent(
+                `Hello! I'm interested in ordering the Florida Bed's With Mattress:\n\n` +
+                `✨ Size: ${size}\n` +
+                `💰 Price: ${price}\n\n` +
+                `I'd like to discuss the order details and delivery options.`
+            );
+            
+            whatsappOrderBtn.href = `https://wa.me/447494821146?text=${message}`;
+        }
+        
+        // Initialize WhatsApp link
+        updateWhatsAppLink();
+        
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            if (!selectedSize) {
+                alert('Please select a bed size before placing your order.');
+                return false;
+            }
+
+            // Get form values
+            const formData = new FormData(orderForm);
+            
+            const orderData = {
+                productName: 'Florida Bed\'s With Mattress',
+                selectedSize: selectedSize,
+                price: currentPrice.textContent,
+                customer: formData.get('name').trim(),
+                address: formData.get('address').trim(),
+                postcode: formData.get('postcode').trim(),
+                whatsapp: formData.get('whatsapp').trim(),
+                selectedImage: previewImage.src,
+                paymentMethod: 'Cash on Delivery'
+            };
+
+            // Validate form data
+            if (!orderData.customer || !orderData.address || !orderData.postcode || !orderData.whatsapp) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+
+            // Submit order to server
+            fetch('https://aspire-furnitures-uk.onrender.com/api/submit-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Create WhatsApp message with order details
+                    const message = encodeURIComponent(
+                        `Hello! I've just placed an order for Florida Bed's With Mattress:\n\n` +
+                        `👤 Name: ${orderData.customer}\n` +
+                        `📍 Address: ${orderData.address}\n` +
+                        `📮 Postcode: ${orderData.postcode}\n` +
+                        `📱 WhatsApp: ${orderData.whatsapp}\n` +
+                        `🛏️ Size: ${orderData.selectedSize}\n` +
+                        `💰 Price: ${orderData.price}\n\n` +
+                        `Please confirm my order and provide delivery details.`
+                    );
+
+                    // Update WhatsApp button in confirmation
+                    const whatsappButton = orderConfirmation.querySelector('.whatsapp-button');
+                    whatsappButton.href = `https://wa.me/447494821146?text=${message}`;
+
+                    // Show confirmation
+                    orderConfirmation.innerHTML = `
+                        <p>${data.message}</p>
+                        <p>📱 For order tracking or updates, please contact us on WhatsApp:</p>
+                        <a href="https://wa.me/447494821146?text=${message}" class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                        </a>
+                        <p class="save-order-id">Please save your Order ID for future reference.</p>
+                    `;
+
+                    // Show confirmation
+                    orderForm.style.display = 'none';
+                    orderConfirmation.style.display = 'block';
+                } else {
+                    alert(data.message || 'There was an error saving your order. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error saving order:', error);
+                alert('There was an error saving your order. Please try again.');
+            });
+
+            return false;
+        }
+    </script>
+
+    <style>
+        .mattress-info {
+            background-color: #f8f5f0;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .mattress-info h3 {
+            color: #8b5e3c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mattress-info p {
+            margin: 0.5rem 0;
+            color: #444;
+        }
+    </style>
+    <script src="../js/mobile-menu.js"></script>
+</body>
+</html> 

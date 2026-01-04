@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aspire Furniture UK - Premium Furniture at Budget Prices</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+    <meta name="msapplication-TileColor" content="#8b5e3c">
+    <meta name="theme-color" content="#8b5e3c">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/mobile.css?v=1.0.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <base href="./">
+</head>
+<body>
+    <!-- Moving Ticker -->
+    <div class="ticker-container">
+        <div class="ticker">
+            <div class="ticker-content">
+                <span>Free and Fast delivery all UK</span>
+                <span>Premium Quality Furniture at Budget Prices</span>
+                <span>Cash on Delivery - No Risk</span>
+                <span>Trusted by hundreds across the UK</span>
+            </div>
+            <div class="ticker-content">
+                <span>Free and Fast delivery all UK</span>
+                <span>Premium Quality Furniture at Budget Prices</span>
+                <span>Cash on Delivery - No Risk</span>
+                <span>Trusted by hundreds across the UK</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="./images/logo.svg" alt="Aspire Furniture UK Logo">
+                <span class="site-name">Aspire Furniture UK</span>
+            </div>
+            
+            <div class="mobile-controls">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#wardrobes">WARDROBES</a>
+                <a href="#sofas">SOFAS</a>
+                <a href="#leather-sofas">LEATHER SOFAS</a>
+                <a href="#beds">BEDS</a>
+                <a href="#wall-panels">WALL PANELS</a>
+                <a href="#dressing-tables">DRESSING TABLES</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/hero1.jpg" alt="Premium Furniture Collection">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/hero2.jpg" alt="Elegant Living Room Setup">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/hero3.jpg" alt="Modern Bedroom Design">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/hero4.jpg" alt="Stylish Home Interior">
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0" onclick="goToSlide(0)"></span>
+                <span class="indicator" data-slide="1" onclick="goToSlide(1)"></span>
+                <span class="indicator" data-slide="2" onclick="goToSlide(2)"></span>
+                <span class="indicator" data-slide="3" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Block Section -->
+    <section class="feature-blocks">
+        <div class="feature-container">
+            <div class="feature-block">
+                <div class="feature-icon">✅</div>
+                <div class="feature-text">
+                    <h3>Original Products</h3>
+                    <p>LOVED BY ASPIRE</p>
+                </div>
+            </div>
+            <div class="feature-block">
+                <div class="feature-icon">🏛️</div>
+                <div class="feature-text">
+                    <h3>BUY NOW PAY LATER</h3>
+                    <p>ENJOY BUY NOW PAY LATER</p>
+                </div>
+            </div>
+            <div class="feature-block">
+                <div class="feature-icon">🚚</div>
+                <div class="feature-text">
+                    <h3>Free Shipping</h3>
+                    <p>Free Delivery in England (Please See Delivery Map In The Picture Gallery)</p>
+                </div>
+            </div>
+            <div class="feature-block">
+                <div class="feature-icon">⭐</div>
+                <div class="feature-text">
+                    <h3>TRUSTPILOT</h3>
+                    <p>RATED HIGHLY BY YOU</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="about-container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <p class="intro-text">At Aspire Furniture UK, we believe your home should be a reflection of timeless elegance, comfort, and personal style.</p>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="centered-text">With a commitment to exceptional craftsmanship and refined design, we bring you furniture that elevates every space it touches.</p>
+                        
+                        <p class="centered-text">From luxurious sofas and premium leather sofas to beautifully crafted beds, spacious wardrobes, stylish dressing tables, and modern wall panels, every piece in our collection is thoughtfully designed to blend sophistication with everyday living.</p>
+                        
+                        <blockquote class="mission-statement">
+                            <p>Our mission is simple: to create furniture that not only looks stunning but feels like home.</p>
+                        </blockquote>
+                        
+                        <p class="centered-text">With a focus on quality materials, meticulous attention to detail, and designs that balance beauty with functionality, Aspire Furniture UK continues to be a trusted destination for those who seek comfort, elegance, and lasting value.</p>
+                        
+                        <p class="inspire-text">At Aspire, we don't just furnish homes— we help you create spaces that inspire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Sections -->
+    <main>
+        <section id="wardrobes" class="product-section">
+            <h2>WARDROBES</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/wardrobes/wardrobe1-main.jpg" alt="Modern Sliding Wardrobe">
+                    <h3>Modern Sliding Wardrobe</h3>
+                    <p class="price">£240</p>
+                    <a href="./products/wardrobe1.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/wardrobes/vision-main wardrobe.jpg" alt="Modern Full Mirror Sliding Doors Wardrobe - Vision">
+                    <h3>Modern Full Mirror Sliding Doors Wardrobe – Vision</h3>
+                    <p class="price">£280</p>
+                    <a href="./products/wardrobe2.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/wardrobes/oslo3.jpg" alt="Modern Full Mirror Sliding Doors Wardrobe - Oslo">
+                    <h3>Modern Full Mirror Sliding Doors Wardrobe – Oslo</h3>
+                    <p class="price">£280</p>
+                    <a href="./products/wardrobe3.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/wardrobes/nichole-white.jpg" alt="Modern Full Mirror Sliding Doors Wardrobe - Nichole">
+                    <h3>Modern Full Mirror Sliding Doors Wardrobe - Nichole</h3>
+                    <p class="price">£280</p>
+                    <a href="./products/wardrobe4.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sofas" class="product-section">
+            <h2>SOFAS</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/sofas/vsofa1.jpg" alt="3+2 Corner Sofa">
+                    <h3>3+2 Corner Sofa</h3>
+                    <p class="price">£480</p>
+                    <a href="./products/sofa1.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/sofas/usofa1.jpg" alt="Ushape Sofa">
+                    <h3>Ushape Sofa</h3>
+                    <p class="price">£550</p>
+                    <a href="./products/sofa2.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/sofas/dylan1.jpg" alt="Dylan Corner Sofa">
+                    <h3>Dylan Corner Sofa</h3>
+                    <p class="price">£340</p>
+                    <a href="./products/sofa3.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/sofas/ashton2.jpeg" alt="Ashton Sofa 3+2">
+                    <h3>Ashton Sofa 3+2</h3>
+                    <p class="price">£500</p>
+                    <a href="./products/sofa4.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="leather-sofas" class="product-section">
+            <h2>LEATHER SOFAS</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/Leather Sofa/c/bc1.jpg" alt="Leather Corner Sofa">
+                    <h3>Leather Corner Sofa</h3>
+                    <p class="price">£699</p>
+                    <p class="original-price">£899</p>
+                    <a href="./products/leather-corner-sofa.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/Leather Sofa/3+2/lb1.jpg" alt="Leather 3+2 Sofa">
+                    <h3>Leather 3+2 Sofa</h3>
+                    <p class="price">£550</p>
+                    <p class="original-price">£600</p>
+                    <a href="./products/leather-32-sofa.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beds" class="product-section">
+            <h2>BEDS</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/beds/fbed1.jpg" alt="Florida Bed's With Mattress">
+                    <h3>Florida Bed's With Mattress</h3>
+                    <p class="price">£180</p>
+                    <a href="./products/bed1.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/beds/hbed3.jpg" alt="Panel Wing Beds With Mattress">
+                    <h3>Panel Wing Beds With Mattress</h3>
+                    <p class="price">£180</p>
+                    <a href="./products/bed2.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/beds/lbed4.jpg" alt="Hilton Beds With Mattress">
+                    <h3>Hilton Beds With Mattress</h3>
+                    <p class="price">£180</p>
+                    <a href="./products/bed3.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/beds/dbed1.jpg" alt="Divan Ottoman Storage Beds">
+                    <h3>Divan Ottoman Storage Beds</h3>
+                    <p class="price">£380</p>
+                    <a href="./products/bed4.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="wall-panels" class="product-section">
+            <h2>WALL PANELS</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/wall-panels/pvc1.jpg" alt="Plastic Wooden Effect PVC Wall Panels">
+                    <h3>Plastic Wooden Effect PVC Wall Panels</h3>
+                    <p class="price">£170</p>
+                    <a href="./products/panel1.html" class="order-now">Order Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="./images/wall-panels/wooden4.webp" alt="Acoustic Wooden Panels">
+                    <h3>Acoustic Wooden Panels</h3>
+                    <p class="price">£60</p>
+                    <a href="./products/panel2.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="dressing-tables" class="product-section">
+            <h2>DRESSING TABLES</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./images/dressing-tables/dressing-table-white.jpg" alt="Dressing Table with LED Lights and Music Player">
+                    <h3>Dressing Table with LED Lights and Music Player</h3>
+                    <p class="price">£340</p>
+                    <p class="original-price">£380</p>
+                    <a href="./products/dressingtable1.html" class="order-now">Order Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Customer Ratings Section -->
+    <section class="customer-ratings">
+        <div class="ratings-container">
+            <h2>What Our Customers Say</h2>
+            <div class="rating-stats">
+                <div class="rating-item">
+                    <div class="rating-number">4.9<span>/5</span></div>
+                    <div class="rating-label">Average Rating</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">1000<span>+</span></div>
+                    <div class="rating-label">Happy Customers</div>
+                </div>
+                <div class="rating-item">
+                    <div class="rating-number">98<span>%</span></div>
+                    <div class="rating-label">Repeat Buyers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Place Your Order</h2>
+            <form id="order-form">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="text" name="postcode" placeholder="Postcode" required>
+                <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+                <input type="text" name="product" id="selected-product" readonly>
+                <input type="text" name="size" id="selected-size" readonly>
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/447494821146" class="whatsapp-float" target="_blank" title="Let us know if you need any help">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: aspirefurniture7@gmail.com</p>
+                <p>Phone: +447494821146</p>
+                <p>Address: Rd, Chorlton-cum-Hardy, Manchester M21 8AG, United Kingdom</p>
+                <a href="https://wa.me/447494821146" class="whatsapp-link">Chat on WhatsApp</a>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#wardrobes">Wardrobes</a></li>
+                    <li><a href="#sofas">Sofas</a></li>
+                    <li><a href="#leather-sofas">Leather Sofas</a></li>
+                    <li><a href="#beds">Beds</a></li>
+                    <li><a href="#wall-panels">Wall Panels</a></li>
+                    <li><a href="#dressing-tables">Dressing Tables</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./return.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li>Trusted by hundreds across the UK</li>
+                    <li>Cash on Delivery – No Risk</li>
+                    <li>Premium Quality, Budget Price</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/mobile-menu.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html> 

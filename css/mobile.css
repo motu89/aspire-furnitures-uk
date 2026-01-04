@@ -1,0 +1,2158 @@
+/* Mobile Optimizations for Aspire Furniture UK */
+
+/* Important note: This file only applies styles for tablet and mobile views */
+/* Desktop styles are handled in styles.css */
+
+/* Fix for the ticker text bar */
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0 15px;
+    /* Equal padding on both sides */
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.ticker {
+    width: 200%;
+}
+
+.ticker-content span {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+    display: none;
+}
+
+/* Global mobile adjustments */
+@media (max-width: 1024px) {
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        position: relative;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border: none;
+        outline: none;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    /* Improve tap targets */
+    button,
+    .order-now,
+    .size-option,
+    .nav-menu a,
+    .whatsapp-booking-button {
+        min-height: 44px;
+        min-width: 44px;
+        border: none;
+    }
+
+    /* Input fields padding for better touch */
+    input,
+    textarea,
+    select {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    /* Product-specific content */
+    .color-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .color-option {
+        margin: 5px;
+        border: none;
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        height: 75vw;
+        min-height: 250px;
+        max-height: 500px;
+    }
+
+    .carousel,
+    .carousel-inner {
+        height: 100%;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+
+    /* Moving ticker improvements */
+    .ticker-container {
+        font-size: 0.9rem;
+        padding: 8px 0;
+        /* Removed padding on sides */
+        background-color: #5e3a1c;
+        color: white;
+        z-index: 100;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        white-space: nowrap;
+        border: none;
+        outline: none;
+        margin: 0;
+    }
+
+    /* About Us section responsive styles */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .intro-text {
+        font-size: 1.2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .mission-statement p {
+        font-size: 1.1rem;
+    }
+
+    .inspire-text {
+        font-size: 1.1rem;
+    }
+
+    .ticker-content {
+        align-items: center;
+        height: 24px;
+        width: 100%;
+    }
+
+    .ticker-content span {
+        padding: 0 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    /* Header overhaul with better logo/site name visibility */
+    header {
+        position: sticky;
+        top: 0;
+        height: auto;
+        min-height: 60px;
+        padding: 0;
+        /* Removed padding on sides */
+        background-color: #fff;
+        z-index: 999;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: block !important;
+        visibility: visible !important;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        margin: 0;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        position: relative;
+        height: 60px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        visibility: visible !important;
+    }
+
+    /* Logo improvements - better visibility */
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 5px 0;
+        position: relative;
+        z-index: 2000;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 60%;
+        visibility: visible !important;
+        margin-right: 10px;
+        /* Add space between logo and menu */
+    }
+
+    .logo img {
+        height: 36px;
+        width: auto;
+        margin-right: 8px;
+        flex-shrink: 0;
+        display: block !important;
+    }
+
+    .site-name {
+        font-size: 16px;
+        margin: 0;
+        display: inline-block !important;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        font-weight: 700;
+        visibility: visible !important;
+    }
+
+    /* Hamburger menu styling */
+    .hamburger-menu {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        z-index: 2000;
+        margin-left: auto;
+        padding: 0;
+        visibility: visible !important;
+    }
+
+    .hamburger-menu span {
+        display: block !important;
+        height: 4px;
+        width: 100%;
+        background-color: #333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        visibility: visible !important;
+    }
+
+    /* When menu is active, transform hamburger to X */
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+    /* Navigation menu improvements with better clickability */
+    nav {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 998;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+        padding: 10px 0;
+        transition: transform 0.3s ease;
+    }
+
+    nav.active {
+        display: block;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Style the nav links properly */
+    nav a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        color: #333;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px;
+        /* Increased font size for better visibility */
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        transition: all 0.2s ease;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+        background-color: #f8f8f8;
+        color: #8b5e3c;
+    }
+
+    /* Improve tap target size */
+    nav a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Improve navigation clickability */
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 15px 10px;
+        color: #333;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 16px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Make entire nav item clickable, not just text */
+    .nav-menu li:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .nav-menu a:hover {
+        background-color: #f8f8f8;
+    }
+
+    /* Search box improvements */
+    .nav-menu .search-container {
+        width: 100%;
+        padding: 15px 15px;
+        /* Equal padding on both sides */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
+        background-color: #f8f8f8;
+    }
+
+    .nav-menu .search-container #search-input {
+        width: 75%;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-right: none;
+        border-radius: 5px 0 0 5px;
+        font-size: 16px;
+    }
+
+    .nav-menu .search-container #search-button {
+        padding: 10px 15px;
+        border: none;
+        background: #e74c3c;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        height: 100%;
+    }
+
+    /* Hero section and carousel fixes - fix spacing issues */
+    .hero {
+        position: relative;
+        height: 75vw;
+        /* Increased height for better visibility */
+        max-height: 500px;
+        /* Increased max-height */
+        min-height: 250px;
+        /* Ensure minimum height is sufficient */
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        outline: none !important;
+        box-sizing: border-box;
+    }
+
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        outline: none !important;
+        box-sizing: border-box;
+    }
+
+    .hero-inner {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+    }
+
+    .carousel-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: none !important;
+        outline: none !important;
+        max-width: 100%;
+        margin: 0 !important;
+    }
+
+    .carousel-item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        border: none;
+        outline: none;
+    }
+
+    .carousel-item.active {
+        display: block;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Ensures images cover the area without distortion */
+        object-position: center;
+        /* keep the image centered */
+        display: block;
+        border: none !important;
+        outline: none !important;
+        max-width: 100%;
+        margin: 0 !important;
+    }
+
+    /* Carousel controls */
+    .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 20px;
+        z-index: 10;
+        border-radius: 50%;
+        padding: 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .carousel-control.prev {
+        left: 10px;
+    }
+
+    .carousel-control.next {
+        right: 10px;
+    }
+
+    .carousel-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+    }
+
+    .indicator.active {
+        background: white;
+    }
+
+    /* Feature blocks improvements */
+    .feature-blocks {
+        background-color: #2a2a2a;
+        padding: 1.5rem 10px;
+        /* Equal padding on both sides */
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .feature-container {
+        flex-direction: column;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 1rem;
+    }
+
+    .feature-block {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.8rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+    }
+
+    .feature-icon {
+        margin-right: 1rem;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .feature-text h3 {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .feature-text p {
+        font-size: 0.85rem;
+    }
+
+    /* Product intro section */
+    .product-intro {
+        background-color: #fff;
+        padding: 2rem 10px;
+        /* Equal padding on both sides */
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .product-intro .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .product-intro h2 {
+        color: #5e3a1c;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .product-intro p {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    .trust-stats {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #8b5a2b;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 0.5rem;
+    }
+
+    /* Product section improvements */
+    .product-section {
+        padding: 2rem 10px;
+        /* Equal padding on both sides */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .product-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .product-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Standardized product grid across all sections */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+        padding: 15px 10px;
+        /* Equal padding on both sides */
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    /* Standardized product card styling with centered text */
+    .product-card {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        padding-bottom: 10px;
+        overflow: hidden;
+        transition: transform 0.2s ease;
+        text-align: center;
+    }
+
+    .product-card:active {
+        transform: scale(0.98);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+        border-radius: 8px 8px 0 0;
+        display: block;
+        padding: 8px;
+    }
+
+    /* Specific styling for dressing table on mobile */
+    #dressing-tables .product-card img {
+        height: 240px;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+        margin: 0.5rem 0;
+        line-height: 1.3;
+        height: 2.6rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-align: center;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .product-card .price {
+        font-size: 1.1rem;
+        margin: 0.3rem 0;
+        text-align: center;
+        font-weight: bold;
+        color: #8b5e3c;
+    }
+
+    .product-card .order-now {
+        margin: 0.5rem auto 0.8rem;
+        padding: 0.6rem 1rem;
+        width: 80%;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        background-color: #8b5e3c;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.2s ease;
+        border: none;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card .order-now:hover,
+    .product-card .order-now:active {
+        background-color: #6e4a2e;
+    }
+
+    /* Product page improvements */
+    .product-page {
+        padding: 1rem 10px;
+        /* Equal padding on both sides */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+        padding: 1rem 10px;
+        /* Equal padding on both sides */
+        width: 100%;
+        box-sizing: border-box;
+        gap: 1.5rem;
+    }
+
+    .product-gallery {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 2rem;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .main-image {
+        position: relative;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .main-image img {
+        max-height: 350px;
+        width: auto;
+        max-width: 450px;
+        margin: 0 auto 15px;
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .thumbnail-container {
+        max-width: 450px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        gap: 10px;
+    }
+
+    .thumbnail-container::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .thumbnail-container::-webkit-scrollbar-thumb {
+        background-color: rgba(139, 94, 60, 0.5);
+        border-radius: 4px;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 2px solid #eee;
+    }
+
+    .thumbnail.active {
+        border-color: #8b5e3c;
+        transform: scale(1.05);
+    }
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Add visual indicator for scrollable gallery */
+    .product-gallery .thumbnail-container::after {
+        content: '';
+        flex: 0 0 5px;
+    }
+
+    /* Fix for specific elements in sofa and panel pages */
+    .product-info .selected-image-text {
+        color: #198754;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 4px;
+        background-color: rgba(25, 135, 84, 0.1);
+        margin: 10px auto;
+        max-width: 90%;
+    }
+
+    /* Enhanced styling for order preview image */
+    .preview-content #preview-image {
+        margin: 0 auto;
+        display: block;
+        border: 2px solid #8b5e3c;
+        border-radius: 4px;
+    }
+
+    /* Make sure all product details are properly aligned */
+    .product-info .product-features,
+    .product-info .product-description {
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    /* Form improvements */
+    .order-form input,
+    .order-form button,
+    #order-form input,
+    #order-form button {
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    .order-form button,
+    #order-form button {
+        background-color: #8b5e3c;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    /* WhatsApp elements */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+        z-index: 50;
+    }
+
+    /* Improve text readability */
+    body {
+        font-size: 15px;
+        /* Slightly smaller font size for mobile */
+        line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.3;
+    }
+
+    p,
+    li {
+        line-height: 1.6;
+    }
+
+    /* Prevent text elements from having too small text */
+    .product-card h3 {
+        min-height: 2.6em;
+        font-size: 0.9rem;
+        /* Smaller font size for product titles */
+    }
+
+    /* Increase spacing between sections */
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Better tap targets */
+    .nav-menu a,
+    .order-now,
+    .product-card,
+    button,
+    .whatsapp-booking-button {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile search results styles */
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 250px;
+        z-index: 1000;
+    }
+
+    .search-results a {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+
+    .nav-menu .search-container {
+        position: relative;
+    }
+
+    /* Mobile specific styles for Sofa and Wall Panel product pages */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    .product-info .product-header h1 {
+        font-size: 1.3rem;
+        /* Smaller font size for product headers */
+        text-align: center;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        width: 100%;
+    }
+
+    .product-info .sales-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.8rem 0;
+    }
+
+    .product-info .sales-text,
+    .product-info .viewers-text {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+    }
+
+    .product-info .price-section {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-info .current-price {
+        font-size: 1.6rem;
+        /* Slightly smaller font size for prices */
+    }
+
+    .product-info .color-options,
+    .product-info .size-options {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .product-info .color-options h3,
+    .product-info .size-options h3 {
+        text-align: center;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    .product-info .color-buttons,
+    .product-info .size-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 0 0.5rem;
+    }
+
+    .product-info .stock-info,
+    .product-info .payment-method,
+    .product-info .selected-image-text {
+        width: 100%;
+        text-align: center;
+        margin: 0.8rem 0;
+    }
+
+    /* Order form improvements for better mobile experience */
+    .product-info .order-preview {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    .product-info .order-preview h3 {
+        text-align: center;
+    }
+
+    .product-info .preview-content {
+        text-align: left;
+    }
+
+    .product-info .order-form {
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .product-info .order-form input,
+    .product-info .order-form textarea,
+    .product-info .order-form select {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        border: 1px solid #d0d0d0;
+        border-radius: 5px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    .product-info .order-form input:focus,
+    .product-info .order-form textarea:focus,
+    .product-info .order-form select:focus {
+        border-color: #8b5e3c;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.2);
+    }
+
+    .product-info .order-button {
+        background-color: #8b5e3c;
+        color: white;
+        padding: 12px 15px;
+        border-radius: 25px;
+        width: 90%;
+        margin: 0.8rem auto;
+        font-weight: bold;
+        font-size: 1rem;
+        display: block;
+    }
+
+    .product-info .order-confirmation {
+        width: 100%;
+        padding: 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .product-info .order-confirmation .whatsapp-button {
+        display: block;
+        width: 80%;
+        margin: 1rem auto 0;
+        padding: 10px 15px;
+        border-radius: 25px;
+        font-weight: bold;
+    }
+
+    /* WhatsApp booking section improvements */
+    .product-info .whatsapp-option {
+        width: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        margin-top: 1.5rem;
+    }
+
+    .product-info .whatsapp-booking {
+        text-align: center;
+    }
+
+    .product-info .whatsapp-booking h3 {
+        font-size: 1.2rem;
+        /* Slightly smaller font size for WhatsApp headings */
+        margin-bottom: 1rem;
+    }
+
+    .product-info .whatsapp-booking p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+    }
+
+    .product-info .whatsapp-booking-button {
+        display: block;
+        width: 80%;
+        margin: 1.2rem auto 0;
+        padding: 12px 15px;
+        border-radius: 25px;
+        background-color: #25D366;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* Specific enhancements for Sofa and Wall Panel product pages */
+    [href*="sofa"] .product-info,
+    [href*="panel"] .product-info,
+    .product-page[class*="sofa"] .product-info,
+    .product-page[class*="panel"] .product-info {
+        padding-top: 1rem;
+    }
+
+    /* Ensure price section is properly styled */
+    .product-info .price-section {
+        background-color: rgba(139, 94, 60, 0.05);
+        padding: 0.8rem;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 450px;
+        margin: 1rem auto;
+        box-sizing: border-box;
+    }
+
+    /* Improve urgency messaging */
+    .product-info .stock-info .urgency-text {
+        background-color: rgba(255, 152, 0, 0.1);
+        padding: 8px 12px;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 0.5rem 0;
+        font-weight: 600;
+    }
+
+    /* Improve payment method styling */
+    .product-info .payment-method {
+        background-color: #f8f9fa;
+        padding: 0.8rem;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 450px;
+        margin: 1rem auto;
+        box-sizing: border-box;
+    }
+
+    .product-info .payment-method i {
+        color: #8b5e3c;
+        margin-right: 5px;
+    }
+
+    /* Ensure form styling is consistent */
+    .product-info .order-form {
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    /* Fix the WhatsApp float on mobile for all product pages */
+    .whatsapp-float {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #25D366;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Improve order preview */
+    .order-preview {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    /* Better form layout */
+    .product-info input,
+    .product-info textarea,
+    .product-info select {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        border: 1px solid #d0d0d0;
+        border-radius: 5px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    .product-info input:focus,
+    .product-info textarea:focus,
+    .product-info select:focus {
+        border-color: #8b5e3c;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.2);
+    }
+
+    /* Enhance button hover/active states */
+    .product-info .order-button:active,
+    .product-info .whatsapp-booking-button:active {
+        transform: translateY(1px);
+    }
+
+    /* Enhanced image styling specifically for Sofa and Wall Panel product pages */
+    [href*="sofa"] .product-gallery,
+    [href*="panel"] .product-gallery,
+    .product-page[class*="sofa"] .product-gallery,
+    .product-page[class*="panel"] .product-gallery {
+        margin-bottom: 2rem;
+    }
+
+    /* Fixed main image container and styling */
+    .product-gallery .main-image {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        aspect-ratio: 4/3;
+        margin: 0 auto 15px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-gallery .main-image img {
+        width: auto;
+        height: auto;
+        max-width: 92%;
+        max-height: 92%;
+        object-fit: contain;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Ensure image display is consistent */
+    #main-product-image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Enhance thumbnail styling */
+    .thumbnail-container {
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .thumbnail.active {
+        border-color: #8b5e3c;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(139, 94, 60, 0.25);
+    }
+
+    .thumbnail:not(.active):hover {
+        transform: translateY(-2px);
+    }
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    /* Image display animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .main-image img {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Footer refinements */
+    footer {
+        padding: 2rem 10px;
+        /* Equal padding on both sides */
+        box-sizing: border-box;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 15px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Mobile phone adjustments */
+@media (max-width: 480px) {
+
+    /* Compact header for smaller screens */
+    .header-container {
+        padding: 0 15px;
+        /* Equal padding on both sides */
+        height: 54px;
+    }
+
+    .logo {
+        height: 54px;
+        max-width: 70%;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 34px;
+        margin-right: 8px;
+    }
+
+    .site-name {
+        font-size: 15px;
+        font-weight: 700;
+        max-width: calc(100% - 40px);
+        line-height: 1.1;
+    }
+
+    .hamburger-menu {
+        width: 26px;
+        height: 20px;
+    }
+
+    .hamburger-menu span {
+        height: 3px;
+    }
+
+    /* Navigation refinements */
+    .nav-menu a {
+        padding: 12px 10px;
+        font-size: 16px;
+        /* Increased font size for better visibility */
+    }
+
+    /* Search container refinements */
+    .nav-menu .search-container {
+        padding: 10px 15px;
+        /* Equal padding on both sides */
+    }
+
+    .nav-menu .search-container #search-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .nav-menu .search-container #search-button {
+        padding: 10px;
+    }
+
+    /* Hero section refinements */
+    .hero {
+        height: 55vw;
+        max-height: 250px;
+        min-height: 180px;
+        padding: 0 10px;
+    }
+
+    .carousel {
+        padding: 0 10px;
+    }
+
+    .carousel-indicators {
+        bottom: 5px;
+    }
+
+    .carousel-control {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+
+    /* Product grid refinements */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px 10px;
+    }
+
+    .product-card {
+        margin-bottom: 0;
+        max-width: 100%;
+    }
+
+    .product-card img {
+        height: 240px;
+        object-fit: contain;
+        padding: 8px;
+    }
+
+    /* Specific styling for dressing table on small screens */
+    #dressing-tables .product-card img {
+        height: 260px;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 1rem;
+        margin: 0.7rem 0;
+        padding: 0 0.7rem;
+        height: auto;
+        -webkit-line-clamp: 3;
+    }
+
+    .product-card .price {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    .product-card .order-now {
+        width: 85%;
+        max-width: none;
+        padding: 0.7rem 1rem;
+        margin: 0.7rem auto 1rem;
+    }
+
+    /* Footer refinements */
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        /* Prevents zoom on iOS */
+        border-radius: 5px;
+        -webkit-appearance: none;
+        /* Remove iOS styling */
+        appearance: none;
+    }
+
+    /* Force hardware acceleration for smoother scrolling */
+    .ticker-container,
+    .product-grid,
+    .thumbnail-container {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .product-info .product-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .product-info .current-price {
+        font-size: 1.5rem;
+    }
+
+    .product-info .whatsapp-booking h3 {
+        font-size: 1.2rem;
+    }
+
+    .product-info .whatsapp-booking p {
+        font-size: 0.9rem;
+    }
+
+    .product-gallery .main-image {
+        padding: 10px;
+    }
+
+    .thumbnail-container {
+        padding: 10px 8px;
+    }
+
+    .thumbnail {
+        width: 55px;
+        height: 55px;
+        border-width: 2px;
+    }
+
+    /* Adjusted proportions for smaller screens */
+    .product-gallery .main-image {
+        aspect-ratio: 1/1;
+        max-width: 350px;
+    }
+
+    /* Ensure thumbnails look good on smaller screens */
+    .thumbnail-container {
+        gap: 8px;
+    }
+
+    /* Product intro section */
+    .product-intro {
+        padding: 1.5rem 0;
+    }
+
+    .product-intro .container {
+        padding: 0 10px;
+    }
+
+    .product-intro h2 {
+        font-size: 1.3rem;
+    }
+
+    .product-intro p {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+
+    .trust-stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* About Us section */
+    .about-us {
+        padding: 2rem 0;
+    }
+
+    .about-container {
+        padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        padding: 0 0.5rem;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .mission-statement {
+        padding: 1.5rem;
+    }
+
+    .mission-statement p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .inspire-text {
+        font-size: 1.1rem;
+        padding: 0 0.5rem;
+        font-style: italic;
+        text-align: center;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .header-container {
+        padding: 0 15px;
+        /* Equal padding on both sides */
+        height: 50px;
+    }
+
+    .logo {
+        height: 50px;
+        max-width: 65%;
+    }
+
+    .logo img {
+        height: 28px;
+    }
+
+    .site-name {
+        font-size: 14px;
+        max-width: calc(100% - 30px);
+        font-weight: 700;
+    }
+
+    .hamburger-menu {
+        width: 24px;
+        height: 18px;
+    }
+
+    .nav-menu a {
+        padding: 10px 8px;
+        font-size: 15px;
+        /* Increased font size for better visibility */
+    }
+
+    .product-card img {
+        height: 200px;
+        object-fit: contain;
+        padding: 6px;
+    }
+
+    /* Specific styling for dressing table on very small screens */
+    #dressing-tables .product-card img {
+        height: 220px;
+        object-fit: contain;
+        padding: 8px;
+    }
+
+    .product-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .product-card .price {
+        font-size: 1.1rem;
+    }
+
+    .product-card .order-now {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .product-intro .container {
+        padding: 0 10px;
+        /* Equal padding on both sides */
+    }
+
+    .product-intro h2 {
+        font-size: 1.1rem;
+        /* Slightly smaller font size for very small screens */
+    }
+
+    .product-intro p {
+        font-size: 0.8rem;
+        /* Slightly smaller font size for very small screens */
+        padding: 0 0.3rem;
+    }
+
+    .trust-stats {
+        gap: 0.8rem;
+    }
+
+    .stat-number {
+        font-size: 1.1rem;
+        /* Slightly smaller font size for very small screens */
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        /* Slightly smaller font size for very small screens */
+    }
+
+    /* About Us section on very small screens */
+    .about-us h2 {
+        font-size: 1.1rem;
+    }
+
+    .about-text p {
+        font-size: 0.8rem;
+        padding: 0 0.3rem;
+        font-style: italic;
+    }
+
+    .mission-statement {
+        padding: 1rem;
+    }
+
+    .mission-statement p {
+        font-size: 0.9rem;
+    }
+
+    .inspire-text {
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    .image-placeholder {
+        height: 150px;
+        padding: 0.5rem;
+    }
+
+    .image-placeholder i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Fix for horizontal scrolling issues */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    border: none !important;
+    outline: none !important;
+    position: relative;
+}
+
+/* Smooth scroll behavior for in-page navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix for image sizing in product pages */
+@media (max-width: 768px) {
+    .main-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Fix for tables that might cause horizontal scrolling */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Fix for order preview content */
+    .preview-content {
+        overflow-x: hidden;
+        word-break: break-word;
+    }
+
+    /* Fix for consistent text alignment across all products */
+    .product-info h2,
+    .product-info .price-section,
+    .product-info .size-options,
+    .product-info .color-options,
+    .product-info .product-features,
+    .product-info .stock-info {
+        text-align: center;
+    }
+}
+
+/* Ensure fixed elements don't overlap important content */
+.whatsapp-float {
+    z-index: 900;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve navigation menu behavior on mobile */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu a {
+    color: #333;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.nav-menu a:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background-color: #f9f9f9;
+    color: #242729;
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+/* Welcome screen slider fixes */
+@media screen and (max-width: 768px) {
+    .welcome-screen {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .welcome-screen .slider {
+        height: 100%;
+    }
+
+    .welcome-screen .slide {
+        height: 100%;
+    }
+
+    .welcome-screen .slide img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .slider-text {
+        width: 90%;
+        padding: 10px;
+        bottom: 50px;
+    }
+
+    .slider-text h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .slider-text p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .slider-text .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Product cards responsive adjustments */
+@media screen and (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .product-card {
+        margin: 10px 0;
+        border: none;
+        outline: none;
+    }
+
+    .hero,
+    .carousel,
+    .carousel-inner {
+        border: none;
+        outline: none;
+    }
+}
+
+/* Improve navigation menu behavior on mobile */
+@media (max-width: 768px) {
+
+    /* Ensure hamburger menu is properly displayed and clickable */
+    .hamburger-menu {
+        display: flex !important;
+        cursor: pointer;
+        z-index: 2001;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    /* Fix hamburger animation for better visual feedback */
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Prevent content scrolling when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Extra small device adjustments */
+@media (max-width: 380px) {
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+        flex: 0 0 50px;
+    }
+
+    .product-info .order-form .order-button,
+    .product-info .whatsapp-booking-button,
+    .product-info .order-confirmation .whatsapp-button {
+        width: 100%;
+    }
+
+    .trust-stats {
+        gap: 0.7rem;
+    }
+
+    .stat-number {
+        font-size: 1.1rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* This helps maintain aspect ratio for wardrobes, sofas and panels on all devices */
+@media (max-width: 380px) {
+    .product-gallery .main-image {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Remove any duplicate styles to ensure clean implementation */
+    .product-gallery {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 2rem;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Enhanced product page styling for all products */
+    .product-page {
+        padding: 1rem;
+    }
+
+    .product-container {
+        padding: 1rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Image enhancements for sofa and panel pages */
+    .product-gallery .main-image {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        height: 300px;
+        margin: 0 auto 1rem;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-gallery .main-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 6px;
+        margin: 0 auto;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    /* Better thumbnail styling */
+    .product-gallery .thumbnail-container {
+        width: 100%;
+        max-width: 450px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-gallery .thumbnail {
+        min-width: 60px;
+        min-height: 60px;
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-gallery .thumbnail.active {
+        border-color: #8b5e3c;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(139, 94, 60, 0.2);
+    }
+
+    .product-gallery .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-gallery .main-image {
+        height: 250px;
+        padding: 8px;
+    }
+}
