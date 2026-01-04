@@ -51,11 +51,26 @@
     }
 
     .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0;
-        margin: 0;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+        padding: 15px 10px;
+        margin: 0 auto;
         box-sizing: border-box;
         border: none;
+        max-width: 1200px;
+    }
+
+    .product-section .product-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+        width: 100%;
+        padding: 15px 10px;
+        /* Equal padding on both sides */
+        box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 1200px;
     }
 
     /* Improve tap targets */
@@ -677,8 +692,18 @@
 
     /* Standardized product grid across all sections */
     .product-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+        padding: 15px 10px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        max-width: 1200px;
+    }
+
+    .product-section .product-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px;
         width: 100%;
         padding: 15px 10px;
