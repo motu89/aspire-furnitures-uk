@@ -1603,3 +1603,199 @@ footer {
         right: -30px;
     }
 }
+
+/* Footer Styles */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    padding: 3rem 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+/* Additional product links in footer */
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a:hover {
+    color: #f5f1e9;
+    text-decoration: underline;
+}
+
+.footer-section a:active {
+    transform: translateY(1px);
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+/* Legal section links - make more prominent */
+.footer-section:nth-child(3) a {
+    position: relative;
+    padding-left: 0px;
+}
+
+.footer-section:nth-child(3) a:hover {
+    color: #f0e6d2;
+}
+
+.footer-section:nth-child(3) a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background-color: #f0e6d2;
+    transition: width 0.3s ease;
+}
+
+.footer-section:nth-child(3) a:hover:after {
+    width: 100%;
+}
+
+.whatsapp-link {
+    display: inline-block;
+    background-color: #25D366;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-link:hover {
+    background-color: #20c25e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none !important;
+}
+
+.whatsapp-link:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Payment Methods Styles */
+.payment-methods {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.payment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.payment-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.payment-icons-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    font-size: 2.5rem;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+.payment-icon:hover {
+    transform: scale(1.2);
+}
+
+.payment-copyright {
+    font-size: 0.9rem;
+    color: #666;
+    white-space: nowrap;
+    text-align: right;
+    flex: 0 0 auto;
+}
+
+/* Responsive adjustments for payment methods */
+@media (max-width: 768px) {
+    .payment-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .payment-icons {
+        gap: 20px;
+    }
+    
+    .payment-icon {
+        font-size: 2rem;
+    }
+    
+    .payment-copyright {
+        text-align: center;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 15px;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 6px;
+    }
+
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-link {
+        font-size: 0.9rem;
+    }
+}

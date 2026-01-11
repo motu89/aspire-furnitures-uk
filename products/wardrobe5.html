@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm - Aspire Furniture UK</title>
+    <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/logo.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo.svg" alt="Aspire Furniture UK Logo" width="300" height="80">
+                <h1 class="site-name">Aspire Furniture UK</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="../index.html#wardrobes">WARDROBES</a></li>
+                    <li><a href="../index.html#sofas">SOFAS</a></li>
+                    <li><a href="../index.html#beds">BEDS</a></li>
+                    <li><a href="../index.html#wall-panels">WALL PANELS</a></li>
+                    <li><a href="../index.html#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Image Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="../images/wardrobes/ws1.jpg" alt="Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm" id="main-product-image">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" onclick="changeImage(this, '../images/wardrobes/ws1.jpg')">
+                        <img src="../images/wardrobes/ws1.jpg" alt="Black Color View">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wardrobes/ws2.jpg')">
+                        <img src="../images/wardrobes/ws2.jpg" alt="White Color View">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../images/wardrobes/ws3.jpg')">
+                        <img src="../images/wardrobes/ws3.jpg" alt="Grey Color View">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <div class="product-header">
+                    <h1>Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm</h1>
+                </div>
+                
+                <div class="sales-info">
+                    <p class="sales-text">🔥 10 sold in last 24 hours</p>
+                    <p class="viewers-text">👀 8 people are viewing this right now</p>
+                </div>
+
+                <div class="color-options">
+                    <h3>Color Options</h3>
+                    <div class="color-buttons">
+                        <button class="color-option active" data-color="black" onclick="changeColor('black')"></button>
+                        <button class="color-option" data-color="white" onclick="changeColor('white')"></button>
+                        <button class="color-option" data-color="grey" onclick="changeColor('grey')"></button>
+                    </div>
+                </div>
+
+                <div class="price-section">
+                    <span class="current-price">£520</span>
+                </div>
+
+                <div class="stock-info">
+                    <p class="urgency-text">⚠️ Hurry Up! Only 12 left in stock!</p>
+                </div>
+
+                <div class="payment-method">
+                    <p><i class="fas fa-money-bill-wave"></i> Payment Method: Cash on Delivery</p>
+                </div>
+
+                <!-- Order Form -->
+                <form id="order-form" class="order-form" onsubmit="return handleSubmit(event)">
+                    <div class="order-preview" style="display: none;">
+                        <h3>Order Summary</h3>
+                        <div class="preview-content">
+                            <p><strong>Product:</strong> <span id="preview-product">Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm</span></p>
+                            <p><strong>Selected Color:</strong> <span id="preview-color">Black</span></p>
+                            <p><strong>Price:</strong> <span id="preview-price">£520</span></p>
+                            <p><strong>Selected Image:</strong> <img id="preview-image" src="" alt="Selected product view" style="width: 100px; height: 100px; object-fit: cover;"></p>
+                        </div>
+                    </div>
+
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <input type="text" name="postcode" placeholder="Postcode" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+                    <input type="hidden" name="productName" value="Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm">
+                    <input type="hidden" name="selectedColor" id="selected-color" value="black">
+                    <input type="hidden" name="price" id="selected-price" value="£520">
+                    <input type="hidden" name="selectedImage" id="selected-image">
+                    <input type="hidden" name="paymentMethod" value="Cash on Delivery">
+                    
+                    <button type="submit" class="order-button">Place Order</button>
+                </form>
+
+                <div class="order-confirmation" style="display: none;">
+                    <p>✅ Your order is booked! For order tracking or updates, WhatsApp us.</p>
+                    <a href="https://wa.me/447494821146" class="whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+
+                <div class="whatsapp-option">
+                    <div class="whatsapp-booking">
+                        <h3>Book via WhatsApp</h3>
+                        <p>📱 Prefer to discuss your order on WhatsApp? Our furniture specialists are ready to assist you.</p>
+                        <p>✨ Get instant responses and personalized assistance</p>
+                        <p>🛋️ Discuss customization options</p>
+                        <p>📦 Get real-time delivery updates</p>
+                        <a href="#" class="whatsapp-booking-button" id="whatsapp-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product Description Section -->
+                <div class="product-description-section">
+                    <h2 class="description-heading">Product Description</h2>
+                    <div class="description-content">
+                        <ul class="features-list">
+                            <li><strong>Ample Storage Space:</strong> With a spacious interior and multiple shelves, this wardrobe provides plenty of room to store all of your clothes, shoes, and accessories.</li>
+                            <li><strong>Smooth Sliding Doors:</strong> The sliding doors of our wardrobe glide effortlessly along the track, allowing you to easily access your belongings without disturbing anything else in your room.</li>
+                            <li><strong>Sleek and Stylish:</strong> Our Bedroom Sliding Wardrobe with LED Light is designed to be both functional and fashionable. Its modern, minimalist design will enhance the look of any bedroom.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Customer Reviews Section -->
+                <div class="customer-reviews-section">
+                    <h2 class="reviews-heading">Customer Reviews</h2>
+                    
+                    <div class="reviews-summary">
+                        <div class="average-rating">
+                            <div class="rating-number">4.7</div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="rating-count">Based on 12 reviews</div>
+                        </div>
+                        
+                        <div class="rating-distribution">
+                            <div class="rating-bar">
+                                <span class="rating-label">5 Stars</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%;"></div>
+                                </div>
+                                <span class="rating-count">9</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="rating-label">4 Stars</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 17%;"></div>
+                                </div>
+                                <span class="rating-count">2</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="rating-label">3 Stars</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 8%;"></div>
+                                </div>
+                                <span class="rating-count">1</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="rating-label">2 Stars</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%;"></div>
+                                </div>
+                                <span class="rating-count">0</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="rating-label">1 Star</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%;"></div>
+                                </div>
+                                <span class="rating-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reviews-container">
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">MJ</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">Michael J.</div>
+                                    <div class="review-date">Purchased 1 week ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>Just got this wardrobe and it's amazing! The 256cm size is perfect for our master bedroom and the storage space is incredible. The sliding doors work smoothly and the black finish looks very modern.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">SR</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">Sophie R.</div>
+                                    <div class="review-date">Purchased 2 weeks ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>Bought the white version and it looks stunning in my bedroom. The ample storage space has organized everything perfectly and the sliding doors are so convenient. Highly recommend!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">TW</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">Thomas W.</div>
+                                    <div class="review-date">Purchased 3 days ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>The grey version looks very sophisticated and modern. The sliding mechanism is smooth and quiet, and the interior is well-designed with great storage options. Good quality for the price.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">EL</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">Emma L.</div>
+                                    <div class="review-date">Purchased 1 week ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>This wardrobe has transformed my bedroom! The 256cm size gives me so much storage space and the design is both functional and stylish. The sliding doors are perfect for my small space.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">DR</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">David R.</div>
+                                    <div class="review-date">Purchased 10 days ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>Excellent quality wardrobe with great functionality. The ample storage has solved my organization problems and the sleek design enhances the look of my bedroom. Delivery was prompt and professional.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-initial">AJ</div>
+                                <div class="reviewer-details">
+                                    <div class="reviewer-name">Anna J.</div>
+                                    <div class="review-date">Purchased 5 days ago</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>The black version looks so elegant and modern. The sliding doors operate smoothly and the storage capacity is impressive. The quality is excellent and it was easy to assemble with the instructions provided.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447494821146" class="whatsapp-float" target="_blank" title="Let us know if you need any help">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="../js/product.js"></script>
+    <script>
+        let selectedColor = 'black';
+        let selectedThumbnailPath = 'ws1';
+        
+        // Elements
+        const currentPrice = document.querySelector('.current-price');
+        const orderPreview = document.querySelector('.order-preview');
+        const previewColor = document.getElementById('preview-color');
+        const previewPrice = document.getElementById('preview-price');
+        const previewImage = document.getElementById('preview-image');
+        const whatsappOrderBtn = document.getElementById('whatsapp-order');
+        const orderForm = document.getElementById('order-form');
+        const orderConfirmation = document.querySelector('.order-confirmation');
+        const selectedColorInput = document.getElementById('selected-color');
+        const selectedPriceInput = document.getElementById('selected-price');
+        const selectedImageInput = document.getElementById('selected-image');
+
+        // Set initial selected image
+        previewImage.src = '../images/wardrobes/ws1.jpg';
+        selectedImageInput.value = '../images/wardrobes/ws1.jpg';
+        
+        // Change color function
+        function changeColor(color) {
+            // Update color buttons
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.color-option[data-color="${color}"]`).classList.add('active');
+            
+            selectedColor = color;
+            selectedColorInput.value = color;
+            
+            // Update the main image to show the selected color
+            let imagePath = '';
+            if (color === 'black') {
+                imagePath = '../images/wardrobes/ws1.jpg';
+            } else if (color === 'white') {
+                imagePath = '../images/wardrobes/ws2.jpg';
+            } else if (color === 'grey') {
+                imagePath = '../images/wardrobes/ws3.jpg';
+            }
+            document.getElementById('main-product-image').src = imagePath;
+            
+            // Update preview image
+            previewImage.src = imagePath;
+            selectedImageInput.value = imagePath;
+            previewColor.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+            
+            // Update preview
+            orderPreview.style.display = 'block';
+            previewPrice.textContent = '£520';
+            selectedPriceInput.value = '£520';
+            
+            // Update WhatsApp link
+            updateWhatsAppLink();
+        }
+
+        // Update preview when image is selected
+        function changeImage(thumbnail, imagePath) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            document.getElementById('main-product-image').src = imagePath;
+            previewImage.src = imagePath;
+            selectedImageInput.value = imagePath;
+            
+            // Determine color based on image path
+            let color = '';
+            if (imagePath.includes('ws1')) {
+                color = 'black';
+            } else if (imagePath.includes('ws2')) {
+                color = 'white';
+            } else if (imagePath.includes('ws3')) {
+                color = 'grey';
+            }
+            
+            // Update color buttons
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.color-option[data-color="${color}"]`).classList.add('active');
+            selectedColor = color;
+            selectedColorInput.value = color;
+            previewColor.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+            
+            // Update preview
+            orderPreview.style.display = 'block';
+            previewPrice.textContent = '£520';
+            selectedPriceInput.value = '£520';
+            
+            updateWhatsAppLink();
+        }
+
+        // Update WhatsApp link with current selection
+        function updateWhatsAppLink() {
+            const price = currentPrice.textContent || '£520';
+            
+            const message = encodeURIComponent(
+                `Hello! I'm interested in ordering the Spacious Bedroom Sliding Wardrobe:\n\n` +
+                `🎨 Color: ${selectedColor}\n` +
+                `💰 Price: ${price}\n\n` +
+                `I'd like to discuss the order details and delivery options.`
+            );
+            
+            whatsappOrderBtn.href = `https://wa.me/447494821146?text=${message}`;
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Get form values
+            const formData = new FormData(orderForm);
+            const orderData = {
+                productName: 'Spacious Bedroom Sliding Wardrobe - Sleek and Functional Design in 256cm',
+                color: selectedColor,
+                price: '£520',
+                customer: formData.get('name').trim(),
+                address: formData.get('address').trim(),
+                postcode: formData.get('postcode').trim(),
+                whatsapp: formData.get('whatsapp').trim(),
+                selectedImage: previewImage.src,
+                paymentMethod: 'Cash on Delivery'
+            };
+
+            // Validate form data
+            if (!orderData.customer || !orderData.address || !orderData.postcode || !orderData.whatsapp) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+
+            // Submit order to server
+            fetch('https://aspire-furnitures-uk.onrender.com/api/submit-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Create WhatsApp message with order details
+                    const message = encodeURIComponent(
+                        `Hello! I've just placed an order for the Spacious Bedroom Sliding Wardrobe:\n\n` +
+                        `👤 Name: ${orderData.customer}\n` +
+                        `📍 Address: ${orderData.address}\n` +
+                        `📮 Postcode: ${orderData.postcode}\n` +
+                        `📱 WhatsApp: ${orderData.whatsapp}\n` +
+                        `🎨 Color: ${orderData.color}\n` +
+                        `💰 Price: ${orderData.price}\n\n` +
+                        `Please confirm my order and provide delivery details.`
+                    );
+
+                    // Update WhatsApp button in confirmation
+                    const whatsappButton = orderConfirmation.querySelector('.whatsapp-button');
+                    whatsappButton.href = `https://wa.me/447494821146?text=${message}`;
+
+                    // Show confirmation
+                    orderConfirmation.innerHTML = `
+                        <p>${data.message}</p>
+                        <p>📱 For order tracking or updates, please contact us on WhatsApp:</p>
+                        <a href="https://wa.me/447494821146?text=${message}" class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                        </a>
+                        <p class="save-order-id">Please save your Order ID for future reference.</p>
+                    `;
+
+                    // Show confirmation
+                    orderForm.style.display = 'none';
+                    orderConfirmation.style.display = 'block';
+
+                    // Clear form
+                    orderForm.reset();
+                } else {
+                    alert(data.message || 'There was an error saving your order. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error saving order:', error);
+                alert('There was an error saving your order. Please try again.');
+            });
+
+            return false;
+        }
+    </script>
+
+    <style>
+        .save-order-id {
+            margin-top: 1rem;
+            color: #856404;
+            background-color: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Color options styling */
+        .color-option[data-color="white"] {
+            background-color: white;
+            border: 2px solid #ddd;
+        }
+        
+        .color-option[data-color="black"] {
+            background-color: #000;
+            border: 2px solid #ddd;
+        }
+        
+        .color-option[data-color="grey"] {
+            background-color: #808080;
+            border: 2px solid #ddd;
+        }
+        
+        .color-option.active {
+            border-color: #8b5e3c;
+            transform: scale(1.1);
+        }
+
+        .payment-method {
+            background-color: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+            color: #5d4037;
+        }
+        
+        .payment-method i {
+            color: #8b5e3c;
+            margin-right: 5px;
+        }
+        
+        /* Product Description Section Styling */
+        .product-description-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #faf7f2;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .description-heading {
+            color: #5d4037;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #8b5e3c;
+            padding-bottom: 0.5rem;
+        }
+        
+        .description-content {
+            padding: 1rem;
+        }
+        
+        .features-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            color: #5d4037;
+        }
+        
+        .features-list li strong {
+            color: #8b5e3c;
+        }
+        
+        /* Customer Reviews Section Styling */
+        .customer-reviews-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #faf7f2;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .reviews-heading {
+            color: #5d4037;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #8b5e3c;
+            padding-bottom: 0.5rem;
+        }
+        
+        .reviews-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .average-rating {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            flex: 0 0 30%;
+        }
+        
+        .rating-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #8b5e3c;
+        }
+        
+        .rating-stars {
+            margin: 0.5rem 0;
+            font-size: 1.5rem;
+            color: #d4a056;
+        }
+        
+        .rating-count {
+            color: #8b5e3c;
+            font-size: 0.9rem;
+        }
+        
+        .rating-distribution {
+            flex: 0 0 65%;
+            padding: 1rem;
+        }
+        
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating-label {
+            flex: 0 0 60px;
+            color: #5d4037;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 12px;
+            background-color: #e9e1d6;
+            border-radius: 10px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #8b5e3c;
+            border-radius: 10px;
+        }
+        
+        .rating-bar .rating-count {
+            flex: 0 0 30px;
+            text-align: right;
+            color: #5d4037;
+            font-size: 0.9rem;
+        }
+        
+        .reviews-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-top: 1rem;
+        }
+        
+        .review-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .reviewer-initial {
+            width: 50px;
+            height: 50px;
+            background-color: #8b5e3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .reviewer-details {
+            flex: 1;
+        }
+        
+        .reviewer-name {
+            font-weight: bold;
+            color: #5d4037;
+            font-size: 1.1rem;
+        }
+        
+        .review-date {
+            color: #8b5e3c;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+        
+        .review-rating {
+            margin-bottom: 1rem;
+            color: #d4a056;
+            font-size: 1.1rem;
+        }
+        
+        .review-text p {
+            color: #5d4037;
+            line-height: 1.6;
+        }
+        
+        /* Scrollbar styling for reviews container */
+        .reviews-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .reviews-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .reviews-container::-webkit-scrollbar-thumb {
+            background: #8b5e3c;
+            border-radius: 10px;
+        }
+        
+        .reviews-container::-webkit-scrollbar-thumb:hover {
+            background: #5d4037;
+        }
+        
+        /* Responsive styles for reviews section */
+        @media (max-width: 768px) {
+            .reviews-summary {
+                flex-direction: column;
+            }
+            
+            .average-rating {
+                margin-bottom: 1.5rem;
+            }
+            
+            .reviews-container {
+                max-height: 400px;
+            }
+        }
+    </style>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html>
